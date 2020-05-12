@@ -17,7 +17,7 @@ to run the application:
   Then ...
 
   In the directory: 
-      final
+      final/client
 
   Run the command: 
   
