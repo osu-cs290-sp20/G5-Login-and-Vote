@@ -35,15 +35,15 @@ Needs: 
 EG:
 
            SUBJECT
-yay                      nay
+   yay                    nay
 
-user		      |	        user
-user		      |	        user
-user		      |	        user
-user		      |	        user
-user		      |	        user
-user		      |	        user
-user		      |	        user
+  user		      |	        user
+  user		      |	        user
+  user		      |	        user
+  user		      |	        user
+  user		      |	        user
+  user		      |	        user
+  user		      |	        user
 
 3) design
 	3a) aim for simplicity:
