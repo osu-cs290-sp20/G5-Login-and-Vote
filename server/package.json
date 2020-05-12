@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "group 5 server",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js"
