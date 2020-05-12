@@ -35,7 +35,7 @@ Needs: 
 	EG:
 
 		               SUBJECT
-	yay <vote count>	      nay - <vote count>
+	      yay                     nay
 	-------------------------------------------------
 		    user		      |	        user
 		    user		      |	        user
