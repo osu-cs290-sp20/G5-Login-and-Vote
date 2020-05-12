@@ -15,14 +15,12 @@ Needs: 
 
 1) authentication
 	
-  a) auth can be handled by:
 		- AuthO.
 		- JWT and bcrypt.
  
 
 2) database for logging voters, votes, and subjects
 
-	a) database will have tables/models for: 
 		- the voters and their votes.
 		- the subject being voted on and the voters 
 			who participated.
@@ -38,7 +36,6 @@ Needs: 
 
 3) design
 	
-  a) aim for simplicity:
 		- users should only come here to do one 
 			thing, vote.
 		- a form is really all that is needed
