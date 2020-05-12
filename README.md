@@ -32,18 +32,18 @@ Needs: 
 	displayed, along with each voter in their
 	corresponding vote column.
 
-	EG:
+EG:
 
-		               SUBJECT
-	      yay                      nay
+           SUBJECT
+yay                      nay
 
-		    user		      |	        user
-		    user		      |	        user
-		    user		      |	        user
-		    user		      |	        user
-		    user		      |	        user
-		    user		      |	        user
-		    user		      |	        user
+user		      |	        user
+user		      |	        user
+user		      |	        user
+user		      |	        user
+user		      |	        user
+user		      |	        user
+user		      |	        user
 
 3) design
 	3a) aim for simplicity:
