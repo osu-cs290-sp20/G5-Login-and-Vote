@@ -5,6 +5,35 @@ is to each members standards.
 
 -----------------------------------------------------------
 
+
+to run the application:
+
+  Install the dependencies in the final and server 
+  directories. Check the package.json files
+  accordingly. Install the nodemon package as a 
+  dev dependency using " npm install --save-dev "
+  instead of just " --save "
+
+  Then ...
+
+  In the directory: 
+      final
+
+  Run the command: 
+  
+      npm run build
+  
+  Once complete, move into the server directory 
+  and run the command: 
+  
+      npm run dev
+
+Will add the proxy and development environment in a bit
+but my focus is completing the front end and then testing 
+the endpoints with Postman.
+
+-----------------------------------------------------------
+
 Create a voting app.
 
 The app will be able to allow a pool of predetermined 
