@@ -16,21 +16,27 @@ to run the application:
 
   Then ...
 
-  In the directory: 
-      final/client
+  To test production:
 
-  Run the command: 
-  
-      npm run build
-  
-  Once complete, move into the server directory 
-  and run the command: 
+    uncomment lines in server/server.js
+
+    change to final/client directory and run:
+    
+    npm run build
+
+  To test in development:
+
+    comment/uncomment appropriate lines in server/server.js
+    
+
+  Once the production or development steps are complete:
+
+    Change to the server directory and run:
   
       npm run dev
 
-Will add the proxy and development environment in a bit
-but my focus is completing the front end and then testing 
-the endpoints with Postman.
+
+apis will be tested with Postman.
 
 -----------------------------------------------------------
 
