@@ -22,12 +22,13 @@ app.use(express.json());
 // middelware
 app.use('/api/user', auth);
 
-//app.use(express.static(path.join(__dirname, '../client/build')));
+// PRODUCTION //
+///*
+app.use(express.static(path.join(__dirname, '../client/build')));
 
-/* Production *//*
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 });
-*/
+//*/
 
 app.listen(port, () => console.log('server running'));

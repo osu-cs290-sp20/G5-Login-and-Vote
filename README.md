@@ -18,18 +18,12 @@ to run the application:
 
   To test production:
 
-    uncomment lines in server/server.js
-
     change to final/client directory and run:
     
     npm run build
 
-  To test in development:
 
-    comment/uncomment appropriate lines in server/server.js
-    
-
-  Once the production or development steps are complete:
+  Once complete:
 
     Change to the server directory and run:
   
