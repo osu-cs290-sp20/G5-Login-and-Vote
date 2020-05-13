@@ -36,7 +36,7 @@ the endpoints with Postman.
 
 Create a voting app.
 
-The app will be able to allow a pool of predetermined 
+The app will be able to allow a pool of registered 
 users the ability to vote on a subject.Voting would 
 then be cut-off at a specific time.
 
@@ -44,9 +44,9 @@ Needs: 
 
 1) authentication
 	
-		- AuthO.
 		- JWT and bcrypt.
- 
+    - follow: https://expressjs.com/en/advanced/best-practice-security.html
+
 
 2) database for logging voters, votes, and subjects
 
