@@ -20,7 +20,7 @@ to run the application:
 
     change to final/client directory and run:
     
-    npm run build
+      npm run build
 
 
   Once complete:
@@ -44,7 +44,7 @@ Needs: 
 
 1) authentication
 	
-		- JWT and bcrypt.
+		- JWT and crypto.
     - follow: https://expressjs.com/en/advanced/best-practice-security.html
 
 

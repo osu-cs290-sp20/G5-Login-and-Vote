@@ -4,7 +4,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <div>
-      Group 5 - content to be added
+      Group 5
+
+      <form>
+        <div>do form things</div>
+      </form>
+
     </div>
   );
 }
