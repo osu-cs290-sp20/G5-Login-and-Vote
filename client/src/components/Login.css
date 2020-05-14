@@ -1,0 +1,16 @@
+.loginForm {
+  width: 400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  border-radius: 0.4rem;
+  background-color: rgb(240,240,240);
+}
+
+.loginBtns {
+  display: flex;
+  justify-content: space-around;
+}
+
+.loginBtn {
+  flex: 0 0 30px;
+}
