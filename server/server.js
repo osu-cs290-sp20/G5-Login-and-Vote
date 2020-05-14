@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 const path = require('path');
 const port = process.env.port || 3001;
 const auth = require('./routes/auth');
-// This is intended as a task after assignment is complete
-//const createUserRoute = require('./routes/createUser');
+// voting route
+//const voteRoute = require('./routes/vote');
 const dotenv = require('dotenv');
 
 dotenv.config();
@@ -24,7 +24,7 @@ app.use(express.json());
 // middelware
 app.use('/api/user', auth);
 // This is intended as a task after assignment is complete
-//app.use('/api/create-user', createUserRoute);
+//app.use('/api/vote', voteRoute);
 
 // PRODUCTION //
 ///*
