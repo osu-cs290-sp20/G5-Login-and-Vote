@@ -5,7 +5,7 @@
 // if (startDate === endDate) { end voting }
 //
 // 5 days in the future: 
-// Date.now() + (3600000 * 24 * 5) )- Date.now()
+// Date.now() + (3600000 * 24 * 5) )
 
 const mongoose = require('mongoose');
 
