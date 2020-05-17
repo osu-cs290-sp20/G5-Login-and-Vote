@@ -27,9 +27,13 @@ const measureSchema = new mongoose.Schema({
     type: Array,
     default: undefined
   },
+  startDate: {
+    type: Date,
+    default: Date.now()
+  },
   ttl: {
     type: Date,
-    default: (Date.now() + (3600000 * 24 * 5)) - Date.now()
+    default: (Date.now() + (3600000 * 24 * 5))
   }
 });
 
