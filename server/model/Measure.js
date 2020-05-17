@@ -1,7 +1,8 @@
 // contains a model for a created ballot measure
 
 // ttl is the time to live for the measure being
-// voted on. 
+// voted on.
+// if (startDate === endDate) { end voting }
 //
 // 5 days in the future: 
 // Date.now() + (3600000 * 24 * 5) )- Date.now()
@@ -31,7 +32,7 @@ const measureSchema = new mongoose.Schema({
     type: Date,
     default: Date.now()
   },
-  ttl: {
+  endDate: {
     type: Date,
     default: (Date.now() + (3600000 * 24 * 5))
   }
