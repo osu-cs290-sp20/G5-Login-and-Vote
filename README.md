@@ -5,42 +5,12 @@ is to each members standards.
 
 -----------------------------------------------------------
 
-
-to run the application:
-
-  Install the dependencies in the final and server 
-  directories. Check the package.json files
-  accordingly. Install the nodemon package as a 
-  dev dependency using " npm install --save-dev "
-  instead of just " --save "
-
-  Then ...
-
-  To test production:
-
-    change to final/client directory and run:
-    
-      npm run build
-
-
-  Once complete:
-
-    Change to the server directory and run:
-  
-      npm run dev
-
-
-apis will be tested with Postman.
-
------------------------------------------------------------
-
 Create a voting app.
 
 The app will be able to allow a pool of registered 
 users the ability to vote on a subject.Voting would 
 then be cut-off at a specific time.
 
-Needs: 
 
 1) authentication
 	
@@ -78,3 +48,33 @@ the code has been reviewed by everyone in the group to make
 sure that it works. To make a branch on your local machine, 
 use the git branch and git checkout commands. If you need 
 help, just ask.
+
+-----------------------------------------------------------
+
+
+to run the application:
+
+  Install the dependencies in the final and server 
+  directories. Check the package.json files
+  accordingly. Install the nodemon package as a 
+  dev dependency using " npm install --save-dev "
+  instead of just " --save "
+
+  Then ...
+
+  To test production:
+
+    change to final/client directory and run:
+    
+      npm run build
+
+
+  Once complete:
+
+    Change to the server directory and run:
+  
+      npm run dev
+
+
+apis will be tested with Postman.
+
