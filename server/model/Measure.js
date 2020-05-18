@@ -20,6 +20,12 @@ const measureSchema = new mongoose.Schema({
     required: true,
     minlength: 997
   },
+  creator: {
+    type: String,
+    maxlength: 255,
+    minlength: 6,
+    required: true
+  },
   votes: {
     yes: Number,
     no: Number
