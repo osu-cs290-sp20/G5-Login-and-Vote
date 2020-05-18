@@ -2,8 +2,14 @@ import React from 'react';
 import './Login.css';
 
 const Login = () => {
+
+
+  const handleSubmit = (e) => {
+    // send value to /api/user/register
+    // api/user/login
+  }
+
   return (
-    
     <form class="loginForm">
       <div id="formBasicEmail" class="form-group">
 	<label>Name</label>
