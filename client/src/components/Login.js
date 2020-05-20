@@ -6,6 +6,8 @@ import './Login.css';
 
 import axios from 'axios';
 
+// ternary / router / add state
+
 const Login = () => {
 
   const [log, retUser] = useState(false);
@@ -13,10 +15,11 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const name = e.target.elements.username.value;
     const email = e.target.elements.useremail.value;
     const password = e.target.elements.password.value;
-    console.log(name, email, password);
+
     if (log) {
       console.log('login') 
       axios.post('/api/user/login', {
@@ -31,6 +34,7 @@ const Login = () => {
         console.log(err); 
       });  
     }
+
     if (reg) {
       console.log('reg') 
       axios.post('/api/user/register', {
@@ -86,7 +90,6 @@ const Login = () => {
           className="loginBtn">Register</button>
       </div>
     </form>
-
   );
 };
 
