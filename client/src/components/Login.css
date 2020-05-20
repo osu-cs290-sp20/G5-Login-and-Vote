@@ -6,11 +6,28 @@
   background-color: rgb(240,240,240);
 }
 
+form div {
+  width: 100%;
+  margin: 0 auto;
+}
+
+div input {
+  width: inherit;
+  padding-left: 0.4rem;
+  line-height: 2.6rem;
+  margin-top: 0.6rem;
+  border-radius: 0.4rem;
+  border-style: none;
+}
+
 .loginBtns {
   display: flex;
   justify-content: space-around;
+  margin-top: 0.6rem;
 }
 
 .loginBtn {
-  flex: 0 0 30px;
+  flex: 0 0 50px;
+  font-weight: 300;
+  box-shadow: none;
 }

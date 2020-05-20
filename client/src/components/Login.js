@@ -1,69 +1,92 @@
-import React from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import React,
+{
+  useState,
+} from 'react';
 import './Login.css';
+
+import axios from 'axios';
 
 const Login = () => {
 
+  const [log, retUser] = useState(false);
+  const [reg, newUser] = useState(false);
 
   const handleSubmit = (e) => {
-    // send value to /api/user/register
-    // api/user/login
+    e.preventDefault();
+    const name = e.target.elements.username.value;
+    const email = e.target.elements.useremail.value;
+    const password = e.target.elements.password.value;
+    console.log(name, email, password);
+    if (log) {
+      console.log('login') 
+      axios.post('/api/user/login', {
+        name: name,
+        email: email,
+        password: password
+      })
+      .then((response) => {
+        console.log(response); 
+      })
+      .catch((err) => {
+        console.log(err); 
+      });  
+    }
+    if (reg) {
+      console.log('reg') 
+      axios.post('/api/user/register', {
+        name: name,
+        email: email,
+        password: password
+      })
+      .then((response) => {
+        console.log(response); 
+      })
+      .catch((err) => {
+        console.log(err); 
+      });
+    }
+    retUser(false);
+    newUser(false);
+    e.target.elements.username.value = null;
+    e.target.elements.useremail.value = null;
+    e.target.elements.password.value = null;
   }
 
   return (
-<<<<<<< HEAD
-    <Form onSubmit={handleSubmit} className="loginForm">
-=======
-    
-    <form class="loginForm">
-      <div id="formBasicEmail" class="form-group">
-        <label>Email</label>
-        <input type="email" class="form-control" placeholder="Enter email" />
-        <text class ="text-muted">
-          We'll never share your email with anyone.
-        </text>
+    <form 
+      className="loginForm"
+      onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="name"></label> 
+        <input 
+          placeholder="Your name" //required
+          name="username" 
+          type="text"/>
       </div>
-      <div id="formBasicPassword" class="form-group">
-        <label>Password</label>
-        <input type="password" class="form-control" placeholder="Password" />
+      <div>
+        <label htmlFor="email"></label>
+        <input 
+          placeholder="Your email" //required
+          name="useremail"
+          type="email"/>
       </div>
-      <div class="loginBtns">
-        <button class="loginBtn" type="submit">
-          Login
-        </button>
-        <button class="loginBtn" type="submit">
-          Register
-        </button>
+      <div>
+        <label htmlFor="password"></label>
+        <input 
+          placeholder="Password" //required
+          name="password"
+          type="password"/>
+      </div> 
+      <div className="loginBtns">
+        <button 
+          onClick={() => retUser(true)} 
+          className="loginBtn">Login</button>
+        <button 
+          onClick={() => newUser(true)} 
+          className="loginBtn">Register</button>
       </div>
     </form>
-    
-    /*
-    <Form className="loginForm">
->>>>>>> 2924799effe03cb145a1f70e29d33a96d275bb0f
-      <Form.Group controlId="formBasicEmail">
-        <Form.Label>Email</Form.Label>
-        <Form.Control id="input" type="email" placeholder="Enter email" />
-        <Form.Text className="text-muted">
-          We'll never share your email with anyone.
-        </Form.Text>
-      </Form.Group>
 
-      <Form.Group controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
-      </Form.Group>
-      <div className="loginBtns">
-        <Button
-          className="loginBtn" variant="primary" type="submit">
-          Login
-        </Button>
-        <Button className="loginBtn" variant="primary" type="submit">
-          Register
-        </Button>
-      </div>
-    </Form>
-    */
   );
 };
 
