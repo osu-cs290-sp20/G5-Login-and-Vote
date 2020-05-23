@@ -7,7 +7,7 @@ let hasC = false;
 
 try {
   crypto = require('crypto');
-  hasC = true;
+  //hasC = true;
   console.log('crypto supported:', hasC);
 } catch (err) {
   console.log(`crypto not supported: ${err}`);
@@ -77,13 +77,9 @@ router.post('/login', async (req, res) => {
 
   console.log(req.body.password.length);
   // Validation w/o library
-  let nameLen = req.body.name.length > 5;
   let emailLen = req.body.email.length > 6;
   let passLen = req.body.password.length > 6;
 
-  if (!nameLen) {
-    return res.status(400).send('name must be greater then 5 characters');
-  }
   if (!emailLen) {
     return res.status(400).send('email must be greater then 6 characters');
   }
@@ -106,15 +102,27 @@ router.post('/login', async (req, res) => {
       .digest('hex')
   });
 
-  if (!validPass) {
+  // for testing  - remove in prod
+  const validPassNonCrypto = await User.findOne({
+    password: req.body.password
+  });
+
+  if (!validPass && !validPassNonCrypto) {
+    console.log(req.body.password)
     return res.status(400).send('Invalid Credentials');
   }
   // end validation
 
   // create jwt
-  const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
+  // https://www.npmjs.com/package/jsonwebtoken
+  const token = jwt.sign({
+    _id: user._id
+  },
+    process.env.TOKEN_SECRET, {
+    expiresIn: '1h'
+  });
   res.header('auth-token', token);
-  res.send(`logged in`);
+  res.status(200).send(user.name);
   console.log(user)
 });
 

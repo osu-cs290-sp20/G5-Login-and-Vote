@@ -3,12 +3,12 @@
 const router = require('express').Router();
 const verify = require('../verifyToken');
 const User = require('../model/User');
-
-let crypto;
-let hasC = false;
+// send the measures
 
 router.post('/', verify, async (req, res) => {
-  res.send('voting')
+  const user = await User.findById({ _id: req.user._id });
+  console.log(req.user._id);
+  res.send(`${user} is logged in to vote`);
 });
 
 module.exports = router;
