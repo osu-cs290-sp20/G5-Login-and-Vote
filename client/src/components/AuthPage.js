@@ -4,11 +4,10 @@ import React,
 } from 'react';
 //import './Login.css';
 import axios from 'axios';
-import Vote from './VotingPage';
 
 // ternary / router / add state
 
-const Login = () => {
+const AuthPage = () => {
   const [token, setToken] = useState('');
   const [invalid, invalidCredentials] = useState(false);
   const [status, setStatus] = useState(0);
@@ -46,31 +45,37 @@ const Login = () => {
   }
 
   return (
-    <form
-      className="loginForm"
-      onSubmit={handleSubmit}>
+    <div>
+      <h1>Voter Login</h1>
+      <form
+        className="loginForm"
+        onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="email"></label>
+          <input
+            placeholder="Your email" //required
+            name="useremail"
+            type="email" />
+        </div>
+        <div>
+          <label htmlFor="password"></label>
+          <input
+            placeholder="Password" //required
+            name="password"
+            type="password" />
+        </div>
+        <div className="loginBtns">
+          <button
+            className="loginBtn">Login</button>
+        </div>
+      </form>
       <div>
-        <label htmlFor="email"></label>
-        <input
-          placeholder="Your email" //required
-          name="useremail"
-          type="email" />
+        <h3>Create you Account</h3>
+        <button>=></button>
       </div>
-      <div>
-        <label htmlFor="password"></label>
-        <input
-          placeholder="Password" //required
-          name="password"
-          type="password" />
-      </div>
-      <div className="loginBtns">
-        <button
-          className="loginBtn">Login</button>
-      </div>
-      {invalid ? 'try again' : null}
-      {status === 200 ? <Vote /> : null}
-    </form>
+
+    </div>
   );
 };
 
-export default Login;
+export default AuthPage;
