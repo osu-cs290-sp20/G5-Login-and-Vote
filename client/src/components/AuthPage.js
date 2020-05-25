@@ -1,5 +1,6 @@
 import React,
 {
+  useEffect,
   useState,
 } from 'react';
 //import './Login.css';
@@ -7,11 +8,24 @@ import axios from 'axios';
 
 // ternary / router / add state
 
-const AuthPage = () => {
+const AuthPage = (props) => {
+  const [s, st] = useState('');
+  const [u, su] = useState('');
+
   const [token, setToken] = useState('');
   const [invalid, invalidCredentials] = useState(false);
   const [status, setStatus] = useState(0);
   const [user, setUserName] = useState('');
+
+  // might not need to do these few steps
+  useEffect(() => {
+    st(props.status);
+    su(props.statusFor);
+  }, [props.status, props.statusFor]);
+
+  const registerUser = () => {
+
+  }
 
   const handleSubmit = (e) => {
 
@@ -46,6 +60,12 @@ const AuthPage = () => {
 
   return (
     <div>
+      <div>
+        <h1>Authentication page</h1>
+        <h3>Status: {s}</h3>
+        <h4>User: {u}</h4>
+      </div>
+
       <h1>Voter Login</h1>
       <form
         className="loginForm"
@@ -70,8 +90,8 @@ const AuthPage = () => {
         </div>
       </form>
       <div>
-        <h3>Create you Account</h3>
-        <button>=></button>
+        <h5>Create your Account</h5>
+        <button onClick={registerUser}>create account</button>
       </div>
 
     </div>
