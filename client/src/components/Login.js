@@ -41,6 +41,7 @@ const Login = (props) => {
           setStatus(response.status);
           setToken(response.headers["auth-token"]);
           setUserName(response.data);
+          props.handleLogin(user);
         }
       })
       .catch((err) => {
@@ -51,7 +52,6 @@ const Login = (props) => {
     if (invalid === true) {
       e.target.elements.useremail.focus();
     }
-
     e.target.elements.useremail.value = null;
     e.target.elements.password.value = null;
   }
@@ -83,7 +83,7 @@ const Login = (props) => {
       <div>
         <h1>Login page</h1>
         <h3>Status: {s}</h3>
-        <h4>User: {u}</h4>
+        <h4>User: {user}</h4>
       </div>
       <Link to="/register">Need an account? Register</Link>
       <div>--</div>

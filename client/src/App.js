@@ -21,13 +21,13 @@ const App = () => {
 
   useEffect(() => {
     setAuthStatus('NOT LOGGED IN')
-    setUser('TEST USER');
   }, []);
 
   const handleLogin = (data) => {
     setAuthStatus('logged in');
-    setUser('ende');
+    setUser(data);
   }
+
   return (
     <div className="backDrop">
       <BrowserRouter>
@@ -42,7 +42,7 @@ const App = () => {
             exact
             path="/login"
             render={props => (
-              <Login {...props} status={authStatus} statusFor={user} />
+              <Login {...props} handleLogin={handleLogin} status={authStatus} statusFor={user} />
             )}>
           </Route>
           <Route
