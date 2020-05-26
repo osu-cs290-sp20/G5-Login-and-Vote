@@ -7,9 +7,8 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
+import axios from 'axios';
 import VotingPage from './components/VotingPage';
-//import Login from './components/Login';
-//import Register from './components/Register';
 import Home from './components/Home';
 import './App.css';
 
@@ -19,11 +18,35 @@ const App = () => {
 
   useEffect(() => {
     console.log(`auth stat: ${authStatus}`);
+    //checkStatus(user);
   }, [authStatus]);
 
   const handleAuth = (data) => {
     setAuthStatus(1);
     setUser(data);
+    checkStatus(data)
+  }
+
+  const checkStatus = (data) => {
+    console.log(`data: ${data}, user: ${user}`);
+    axios.get('/api/user/checklogin', {
+      params: {
+        name: data
+      }
+    })
+      .then((response) => {
+        if (response.status === 200 && authStatus === 0) {
+          setAuthStatus(1);
+          setUser(response.data.name);
+        } else if (response.status === 404 && authStatus === 1) {
+          setAuthStatus(0);
+          setUser('no user');
+        }
+        console.log(response)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   return (

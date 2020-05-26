@@ -129,4 +129,15 @@ router.post('/login', async (req, res) => {
   console.log(user)
 });
 
+router.get('/checklogin', async (req, res) => {
+  console.log(req.query.name);
+  const verifiedName = await User.findOne({
+    name: req.query.name
+  });
+  if (!verifiedName) {
+    return res.status(404).send('not logged in');
+  }
+  res.status(200).send(verifiedName);
+});
+
 module.exports = router;
