@@ -15,6 +15,7 @@ const VotingPage = (props) => {
           <li>display user names - found in the props.user in this component</li>
           <li>add the list of measures as a sisde item</li>
           <li>consider continuing the use of react router</li>
+          <li>obscure the response data... aka, organize and display only what is needed.</li>
         </ul>
       </div>
     </div>
