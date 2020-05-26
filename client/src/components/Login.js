@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-import React from 'react';
-=======
 import React,
 {
   useState,
 } from 'react';
->>>>>>> alvin
 import './Login.css';
 import axios from 'axios';
 
