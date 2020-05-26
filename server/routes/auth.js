@@ -53,7 +53,7 @@ router.post('/register', async (req, res) => {
     try {
       const newUser = await user.save();
 
-      res.send({ user: newUser._id });
+      res.send({ user: newUser.name });
     } catch (err) {
       res.status(400).send(err);
     }
@@ -65,7 +65,10 @@ router.post('/register', async (req, res) => {
     });
     try {
       const newUser = await user.save();
-      res.send({ user: newUser._id });
+      const sendUser = await User.findOne({
+        name: newUser.name
+      });
+      res.status(200).send(sendUser.name);
     } catch (err) {
       res.status(400).send(err);
     }

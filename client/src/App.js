@@ -44,6 +44,7 @@ const App = () => {
           render={props => (
             <VotingPage
               {...props}
+              user={user}
               auth={authStatus} />
           )}>
         </Route>

@@ -37,9 +37,11 @@ const Register = (props) => {
         password: password
       })
         .then((response) => {
-          invalidCredentials(false);
-          props.handleLogin(response);
-          console.log("res: " + response);
+          if (response.status === 200) {
+            invalidCredentials(false);
+            props.handleLogin(response.data);
+          }
+          console.log("res: " + response.data);
         })
         .catch((err) => {
           console.log("err: " + err);
