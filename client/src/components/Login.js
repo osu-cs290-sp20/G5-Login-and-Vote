@@ -1,29 +1,16 @@
 import React,
 {
   useState,
-  useEffect
 } from 'react';
-import { Link } from 'react-router-dom';
-//import './Login.css';
+import './Login.css';
 import axios from 'axios';
-import Vote from './VotingPage';
-
-// ternary / router / add state
 
 const Login = (props) => {
-  const [s, st] = useState('');
-  const [u, su] = useState('');
-
 
   const [token, setToken] = useState('');
   const [invalid, invalidCredentials] = useState(false);
   const [status, setStatus] = useState(0);
   const [user, setUserName] = useState('');
-  useEffect(() => {
-    st(props.status);
-    su(props.statusFor);
-  }, [props.status, props.statusFor]);
-
 
   const handleSubmit = (e) => {
 
@@ -41,7 +28,8 @@ const Login = (props) => {
           setStatus(response.status);
           setToken(response.headers["auth-token"]);
           setUserName(response.data);
-          props.handleLogin(user);
+          props.handleLogin(response.data);
+          console.log(token, response.data);
         }
       })
       .catch((err) => {
@@ -74,20 +62,13 @@ const Login = (props) => {
           name="password"
           type="password" />
       </div>
+      <div className="errorMsg">
+        {invalid ? 'try again' : null}
+      </div>
       <div className="loginBtns">
         <button
           className="loginBtn">Login</button>
       </div>
-      {invalid ? 'try again' : null}
-      {status === 200 ? <Vote /> : null}
-      <div>
-        <h1>Login page</h1>
-        <h3>Status: {s}</h3>
-        <h4>User: {user}</h4>
-      </div>
-      <Link to="/register">Need an account? Register</Link>
-      <div>--</div>
-      <Link to="/">go Home</Link>
     </form>
   );
 };

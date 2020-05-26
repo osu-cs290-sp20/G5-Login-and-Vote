@@ -1,27 +1,15 @@
 import React,
 {
   useState,
-  useEffect
 } from 'react';
-import { Link } from 'react-router-dom';
-//import './Login.css';
-
+import './Login.css';
 import axios from 'axios';
 
 // ternary / router / add state
 
 const Register = (props) => {
-  const [s, st] = useState('');
-  const [u, su] = useState('');
-
 
   const [invalid, invalidCredentials] = useState(false);
-
-  useEffect(() => {
-    st(props.status);
-    su(props.statusFor);
-  }, [props.status, props.statusFor]);
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -50,8 +38,8 @@ const Register = (props) => {
       })
         .then((response) => {
           invalidCredentials(false);
+          props.handleLogin(response);
           console.log("res: " + response);
-          props.loginSuccess(response.data);
         })
         .catch((err) => {
           console.log("err: " + err);
@@ -95,18 +83,12 @@ const Register = (props) => {
           name="verifypassword"
           type="password" />
       </div>
+      <div className="errorMsg">
+        {invalid ? 'try again' : null}
+      </div>
       <div className="loginBtns">
         <button className="loginBtn">Register</button>
       </div>
-      {invalid ? 'try again' : null}
-      <div>
-        <h1>Register page</h1>
-        <h3>Status: {s}</h3>
-        <h4>User: {u}</h4>
-      </div>
-      <Link to="/login">Have account? Login</Link>
-      <div>--</div>
-      <Link to="/">Go Home</Link>
     </form>
   );
 }

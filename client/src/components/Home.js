@@ -1,33 +1,46 @@
 import React,
 {
   useState,
-  useEffect
 } from 'react';
-//import Navigation from './Navigation';
+import './Home.css';
 import Register from './Register';
+import Login from './Login';
 
 const Home = (props) => {
 
-  const [s, st] = useState('');
-  const [u, su] = useState('');
+  const [login, selectLogin] = useState(true);
 
-  useEffect(() => {
-    st(props.status);
-    su(props.statusFor);
-  }, [props.status, props.statusFor]);
+  const handleLogin = (data) => {
+    // update App comp
+    props.handleAuth(data);
+    props.history.push('/voting');
+  }
 
-  const loginSuccess = (data) => {
-    // update app component 
-    props.handleLogin(data);
-    props.history.push("/voting");
+  const showOptions = (e) => {
+    console.log(e.target.textContent)
+    selectLogin(!login);
+    let q = document.querySelector('.question');
+    if (e.target.textContent === 'Login') {
+      e.target.textContent = 'Register';
+      q.textContent = 'Need an account?'
+    } else {
+      e.target.textContent = 'Login';
+      q.textContent = 'Have an account?'
+    }
   }
 
   return (
     <div>
-      <h1>Home page</h1>
-      <h3>Status: {s}</h3>
-      <h4>User: {u}</h4>
-      <Register loginSuccess={loginSuccess} />
+      <p>status: {props.auth}</p>
+      {login ?
+        <Register handleLogin={handleLogin} />
+        : <Login handleLogin={handleLogin} />}
+      <div className="helpMsgBtn">
+        <p className="question">Have an account?</p>
+        <button
+          className='homeBtn'
+          onClick={showOptions}>Login</button>
+      </div>
     </div>
   );
 }
