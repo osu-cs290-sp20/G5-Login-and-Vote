@@ -1,16 +1,42 @@
 .loginForm {
   width: 400px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 0.6rem 0.8rem;
   border-radius: 0.4rem;
   background-color: rgb(240,240,240);
 }
 
+form div {
+  width: 100%;
+  margin: 0 auto;
+}
+
+div input {
+  width: inherit;
+  padding-left: 0.4rem;
+  line-height: 2.6rem;
+  margin-top: 1rem;
+  border-radius: 0.4rem;
+  border-style: none;
+}
+
 .loginBtns {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
+  margin-top: 1rem;
 }
 
 .loginBtn {
-  flex: 0 0 30px;
+  flex: 0 0 50px;
+  font-weight: 300;
+  padding: 0.2rem 0.6rem;
+  box-shadow: none;
+  border: none;
+  border-radius: 0.4rem;
+  background: rgb(0,0,140);
+  color: white;
+}
+
+.errorMsg {
+  color: red;
 }
