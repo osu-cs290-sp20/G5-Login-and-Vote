@@ -7,7 +7,7 @@ let hasC = false;
 
 try {
   crypto = require('crypto');
-  //hasC = true;
+  hasC = true;
   console.log('crypto supported:', hasC);
 } catch (err) {
   console.log(`crypto not supported: ${err}`);
@@ -51,9 +51,11 @@ router.post('/register', async (req, res) => {
     });
     console.log(user);
     try {
-      const newUser = await user.save();
-
-      res.send({ user: newUser.name });
+      const newCUser = await user.save();
+      const sendCUser = await User.findOne({
+        name: newCUser.name
+      });
+      res.send(sendCUser.name);
     } catch (err) {
       res.status(400).send(err);
     }
@@ -126,11 +128,11 @@ router.post('/login', async (req, res) => {
   });
   res.header('auth-token', token);
   res.status(200).send(user.name);
-  console.log(user)
+  console.log(user.name)
 });
 
 router.get('/checklogin', async (req, res) => {
-  console.log(req.query.name);
+  console.log(`checklogin: ${req.params}`);
   const verifiedName = await User.findOne({
     name: req.query.name
   });

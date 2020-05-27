@@ -1,3 +1,9 @@
+/* considering just styling with material ui*/
+
+.loginBox {
+  margin: 0 auto;
+}
+
 .helpMsgBtn {
   margin: 0 auto;
   align-items: center;

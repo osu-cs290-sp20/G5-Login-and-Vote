@@ -30,7 +30,7 @@ const Home = (props) => {
   }
 
   return (
-    <div>
+    <div className="loginBox">
       <p>status: {props.auth}</p>
       {login ?
         <Register handleLogin={handleLogin} />

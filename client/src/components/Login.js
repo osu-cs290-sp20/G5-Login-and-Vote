@@ -29,7 +29,7 @@ const Login = (props) => {
           setToken(response.headers["auth-token"]);
           setUserName(response.data);
           props.handleLogin(response.data);
-          console.log(token, response.data);
+          console.log('token: ' + token, response);
         }
       })
       .catch((err) => {
