@@ -1,3 +1,4 @@
+import './VotingPage.css';
 import React,
 {
 } from 'react';
@@ -9,43 +10,71 @@ import {
 } from 'react-router-dom';
 import CreateMeasure from './CreateMeasure';
 import ViewMeasures from './ViewMeasures';
+import axios from 'axios';
 
+// working on displaying the created measures
 const VotingPage = (props) => {
+
+  console.log(`all props: ${props}`);
+
+  const showForm = () => {
+    //document.querySelector('.createMeasure').style.display = 'none';
+  }
+
+  // needs to update an array of active measures
+  // and those that have expired. expired measures
+  // will appear in their own section.
+  ////
+  // make a request to get all existing measures.
+  const createMeasure = (measure) => {
+
+    console.log(`measure created: ${measure}`);
+    console.log(`id: ${props.id}`);
+    axios.get('/api/vote/create-measure')
+      .then((response) => {
+      });
+  }
 
   return (
     <BrowserRouter>
       <div>
-        <ul>
+        <p>Welcome, {props.user}</p>
+        <ul className="nav">
           <li>
-            <Link to="/voting/create-measure">Propose a Measure</Link>
+            <Link
+              onClick={showForm}
+              to="/voting/create-measure">Propose a Measure</Link>
           </li>
           <li>
             <Link to="/voting/view-measures">View Proposals</Link>
           </li>
         </ul>
-        <div>
-          <h1>Vote page</h1>
-          <p>Status: {props.auth}</p>
-          <p>User: {props.user}</p>
-          <h5>to do items</h5>
-          <ul>
-            <li>display user names - found in the props.user in this component</li>
-            <li>add the list of measures as a side item</li>
-            <li>consider continuing the use of react router</li>
-            <li>obscure the response data... aka, organize and display only what is needed.</li>
-            <li>create the measures to be voted on</li>
-          </ul>
+
+        <div className="votingSection">
+
+          <div className="createMeasure">
+            <Switch>
+              <Route path="/voting/create-measure">
+                <CreateMeasure
+                  {...props}
+                  createMeasure={createMeasure}
+                  token={props.token}
+                  userId={props.id}
+                  user={props.user} />
+              </Route>
+              <Route path="/voting/view-measures">
+                <ViewMeasures
+                  {...props}
+                  token={props.token}
+                  userId={props.id}
+                />
+              </Route>
+            </Switch>
+          </div>
+
         </div>
-        <Switch>
-          <Route path="/voting/create-measure">
-            <CreateMeasure />
-          </Route>
-          <Route path="/voting/view-measures">
-            <ViewMeasures />
-          </Route>
-        </Switch>
       </div>
-    </BrowserRouter>
+    </BrowserRouter >
   );
 }
 

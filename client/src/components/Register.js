@@ -39,7 +39,7 @@ const Register = (props) => {
         .then((response) => {
           if (response.status === 200) {
             invalidCredentials(false);
-            props.handleLogin(response.name);
+            props.handleLogin(response.data);
           }
           console.log("res: " + response.data);
         })
