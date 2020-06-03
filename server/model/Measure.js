@@ -18,7 +18,7 @@ const measureSchema = new mongoose.Schema({
   description: {
     type: String,
     required: true,
-    minlength: 997
+    minlength: 10
   },
   creator: {
     type: String,
@@ -40,8 +40,12 @@ const measureSchema = new mongoose.Schema({
   },
   endDate: {
     type: Date,
-    default: (Date.now() + (3600000 * 24 * 5))
+    default: (Date.now() + (3600000 * 24 * 1))
   }
 });
 
-module.exports = mongoose.model('User', measureSchema);
+// todo
+// make timestamps to replace start and end dates
+// https://mongoosejs.com/docs/guide.html#timestamps
+
+module.exports = mongoose.model('Measure', measureSchema);

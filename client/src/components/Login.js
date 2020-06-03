@@ -7,6 +7,7 @@ import axios from 'axios';
 
 const Login = (props) => {
 
+  // not setting after post
   const [token, setToken] = useState('');
   const [invalid, invalidCredentials] = useState(false);
   const [status, setStatus] = useState(0);
@@ -24,12 +25,24 @@ const Login = (props) => {
       password: password
     })
       .then((response) => {
+        console.log(`name: ${response.data.name}`);
+        console.log(`_id: ${response.data._id}`);
+        console.log(`email: ${response.data.email}`);
         if (response.status === 200) {
           setStatus(response.status);
-          setToken(response.headers["auth-token"]);
-          setUserName(response.data);
-          props.handleLogin(response.data);
-          console.log('token: ' + token, response);
+          setToken(response.headers['auth-token']);
+          setUserName(response.data.name);
+          /* console.log(`
+     Login {\n
+         LoginUser: ${response.data}\n  
+         LoginToken: ${response.headers['auth-token']}\n  
+         LoginStatus: ${response.status}\n
+     }`);*/
+          props.handleLogin(
+            response.data._id,
+            response.data.name,
+            response.headers['auth-token'],
+            response.status);
         }
       })
       .catch((err) => {
@@ -69,6 +82,7 @@ const Login = (props) => {
         <button
           className="loginBtn">Login</button>
       </div>
+      {`user: ${user} status: ${status} token: ${token}`}
     </form>
   );
 };

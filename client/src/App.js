@@ -7,46 +7,34 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
-import axios from 'axios';
 import VotingPage from './components/VotingPage';
 import Home from './components/Home';
 import './App.css';
 
 const App = () => {
+
   const [authStatus, setAuthStatus] = useState(0);
+  const [token, setToken] = useState('');
   const [user, setUser] = useState('');
+  const [id, setId] = useState('');
 
   useEffect(() => {
     console.log(`auth stat: ${authStatus}`);
-    //checkStatus(user);
   }, [authStatus]);
 
-  const handleAuth = (data) => {
-    setAuthStatus(1);
-    setUser(data);
-    checkStatus(data)
-  }
-
-  const checkStatus = (data) => {
-    console.log(`data: ${data}, user: ${user}`);
-    axios.get('/api/user/checklogin', {
-      params: {
-        name: data
-      }
-    })
-      .then((response) => {
-        if (response.status === 200 && authStatus === 0) {
-          setAuthStatus(1);
-          setUser(response.data.name);
-        } else if (response.status === 404 && authStatus === 1) {
-          setAuthStatus(0);
-          setUser('no user');
-        }
-        console.log(response)
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  // from Login as data, header, status
+  const handleAuth = (id, user, token, status) => {
+    console.log(`
+    App {\n
+        AppId: ${id}
+        AppUser: ${user}\n  
+        AppToken: ${token}\n  
+        AppStatus: ${status}\n
+    }`);
+    setId(id);
+    setUser(user);
+    setAuthStatus(status);
+    setToken(token);
   }
 
   return (
@@ -67,7 +55,9 @@ const App = () => {
           render={props => (
             <VotingPage
               {...props}
+              id={id}
               user={user}
+              token={token}
               auth={authStatus} />
           )}>
         </Route>

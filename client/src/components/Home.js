@@ -10,9 +10,10 @@ const Home = (props) => {
 
   const [login, selectLogin] = useState(true);
 
-  const handleLogin = (data) => {
+  const handleLogin = (id, user, token, status) => {
     // update App comp
-    props.handleAuth(data);
+    //console.log(`Home: \nuser: ${user}\nHometoken: ${token}\n Homestatus: ${status}`);
+    props.handleAuth(id, user, token, status);
     props.history.push('/voting');
   }
 
@@ -30,7 +31,7 @@ const Home = (props) => {
   }
 
   return (
-    <div className="loginBox">
+    <div className="home">
       <p>status: {props.auth}</p>
       {login ?
         <Register handleLogin={handleLogin} />

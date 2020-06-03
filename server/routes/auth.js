@@ -126,20 +126,16 @@ router.post('/login', async (req, res) => {
     process.env.TOKEN_SECRET, {
     expiresIn: '1h'
   });
-  res.header('auth-token', token);
-  res.status(200).send(user.name);
-  console.log(user.name)
-});
 
-router.get('/checklogin', async (req, res) => {
-  console.log(`checklogin: ${req.params}`);
-  const verifiedName = await User.findOne({
-    name: req.query.name
-  });
-  if (!verifiedName) {
-    return res.status(404).send('not logged in');
+  // organize the user until a better method comes to me
+  let userObj = {
+    name: user.name,
+    token: token,
   }
-  res.status(200).send(verifiedName);
+
+  res.set('auth-token', token);
+  res.status(200).send(user);
+  console.log(`user data: ${user}`);
 });
 
 module.exports = router;
