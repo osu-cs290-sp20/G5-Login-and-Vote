@@ -16,7 +16,9 @@ import axios from 'axios';
 // Aside from the issue of the user being logged out 
 // after initial registration, a logged in user should
 // be greeted with the options to create and vote on 
-// measure proposals. 
+// measure proposals. Currently, an existing user who
+// logs in, stays logged in when adding and voting on
+// measures. 
 // These functionalities are present in the 
 // CreateMeasures and ViewMeasures components, 
 // respectively. 
