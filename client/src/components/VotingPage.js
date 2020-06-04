@@ -12,20 +12,22 @@ import CreateMeasure from './CreateMeasure';
 import ViewMeasures from './ViewMeasures';
 import axios from 'axios';
 
-// working on displaying the created measures
+// 4)
+// Aside from the issue of the user being logged out 
+// after initial registration, a logged in user should
+// be greeted with the options to create and vote on 
+// measure proposals. 
+// These functionalities are present in the 
+// CreateMeasures and ViewMeasures components, 
+// respectively. 
+//
+// Proceed to steps 5a and 5b, found in the above
+// components.
+
 const VotingPage = (props) => {
 
   console.log(`all props: ${props}`);
 
-  const showForm = () => {
-    //document.querySelector('.createMeasure').style.display = 'none';
-  }
-
-  // needs to update an array of active measures
-  // and those that have expired. expired measures
-  // will appear in their own section.
-  ////
-  // make a request to get all existing measures.
   const createMeasure = (measure) => {
 
     console.log(`measure created: ${measure}`);
@@ -42,7 +44,6 @@ const VotingPage = (props) => {
         <ul className="nav">
           <li>
             <Link
-              onClick={showForm}
               to="/voting/create-measure">Propose a Measure</Link>
           </li>
           <li>

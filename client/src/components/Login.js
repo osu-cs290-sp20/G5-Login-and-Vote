@@ -13,6 +13,13 @@ const Login = (props) => {
   const [status, setStatus] = useState(0);
   const [user, setUserName] = useState('');
 
+  // 3a)
+  // Again, another controller function that handles the 
+  // transport of state data. A request is sent to the 
+  // server, authenticating the user with a JWT. Once a 
+  // response is provided to the user, the data/state is 
+  // passed up the prop pipeline, resulting in the 
+  // VotingPage to be rendered to the DOM.
   const handleSubmit = (e) => {
 
     e.preventDefault();

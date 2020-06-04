@@ -2,46 +2,17 @@ import React from 'react';
 import axios from 'axios';
 import './CreateMeasure.css';
 
-/*
-const measureSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-    minlength: 6
-  },
-  description: {
-    type: String,
-    required: true,
-    minlength: 997
-  },
-  creator: {
-    type: String,
-    maxlength: 255,
-    minlength: 6,
-    required: true
-  },
-  votes: {
-    yes: Number,
-    no: Number
-  },
-  voters: {
-    type: Array,
-    default: undefined
-  },
-  startDate: {
-    type: Date,
-    default: Date.now()
-  },
-  endDate: {
-    type: Date,
-    default: (Date.now() + (3600000 * 24 * 5))
-  }
-});
-*/
-
-// needs styling... ill do that later
-
-// component needs the jwt
+// 5a)
+// First, to locate where the data is flowing,
+// look at the api call.
+// The token, created and issued after login,
+// passed to the protected route, /api/vote. 
+// This will be the solution for the registration
+// path, just haven't added that code.
+// Once a measure is created, it is available
+// in the ViewMeasures component.
+// 
+// Go to step 6, found in client/../../Measure.js
 
 const CreateMeasure = (props) => {
 
