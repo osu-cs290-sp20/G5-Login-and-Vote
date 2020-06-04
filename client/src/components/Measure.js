@@ -1,19 +1,28 @@
 import './Measure.css';
-import React,
-{
-  useState
-} from 'react';
+import React from 'react';
 import axios from 'axios';
 
+// 6) 
+// Basic yes, no options along with the description
+// of the measure being voted on exists here.
+// What has not been done is, after the vote has been
+// cast, navigate the user back to the voting page
+// so the user has an idea of what is happening, 
+// preventing any sort of confusion.
+//
+// Stil to do for documentation:
+// - update the server documentation.
+// It will be helpful for now to pay attention to 
+// the api calls and navigate through the code 
+// using the function names that are used for 
+// authentication in server/(verifyToken, router/auth, routes/vote)
 const Measure = (props) => {
 
-  //const [measureId, setMeasureId] = useState(props.data._id);
   const measureId = props.data._id;
 
   const castVote = (e) => {
     e.preventDefault();
     console.log(e.target.elements.choice.value);
-    //console.log(e.target.elements[2].style);
 
     axios.post('/api/vote/cast-vote', ({
       decision: e.target.elements.choice.value,
@@ -26,7 +35,8 @@ const Measure = (props) => {
     });
   }
 
-  // measures should expire in 24 hours
+  // measures expire in 24 hours. That functionality
+  // exists within the Measure model.
   return (
     <div className='measure'>
       <h3>{props.title}</h3>

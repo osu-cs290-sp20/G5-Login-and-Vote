@@ -22,14 +22,16 @@ const App = () => {
     console.log(`auth stat: ${authStatus}`);
   }, [authStatus]);
 
-  // from Login as data, header, status
+  // Main controller that enables the Login and 
+  // Register components to pass data/state up to the 
+  // parent components (App, Home, VotingPage)
   const handleAuth = (id, user, token, status) => {
     console.log(`
-    App {\n
-        AppId: ${id}
-        AppUser: ${user}\n  
-        AppToken: ${token}\n  
-        AppStatus: ${status}\n
+    From App {\n
+        Id: ${id}
+        User: ${user}\n  
+        Token: ${token}\n  
+        Status: ${status}\n
     }`);
     setId(id);
     setUser(user);
@@ -37,6 +39,11 @@ const App = () => {
     setToken(token);
   }
 
+  // 1)
+  // Until the user provides credentials,
+  // the Home component is rendered.
+  //
+  // go to step 2, located in Home.js
   return (
     <div className="backDrop">
       <Switch>
