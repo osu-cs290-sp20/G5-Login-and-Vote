@@ -6,7 +6,7 @@ import './CreateMeasure.css';
 // First, to locate where the data is flowing,
 // look at the api call.
 // The token, created and issued after login,
-// passed to the protected route, /api/vote. 
+// is passed to the protected route, /api/vote. 
 // This will be the solution for the registration
 // path, just haven't added that code.
 // Once a measure is created, it is available

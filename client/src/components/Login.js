@@ -20,6 +20,9 @@ const Login = (props) => {
   // response is provided to the user, the data/state is 
   // passed up the prop pipeline, resulting in the 
   // VotingPage to be rendered to the DOM.
+  //
+  // Go to part 4, located in VotingPage.js
+
   const handleSubmit = (e) => {
 
     e.preventDefault();
