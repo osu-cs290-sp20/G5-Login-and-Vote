@@ -47,11 +47,15 @@ router.post('/register', async (req, res) => {
     return res.status(400).send('Error creating profile');
   }
 
+  /* // just leaving this for now, returns the 
+      // whole user object fyi
   const email = await User.findOne({
     email: req.body.email
   });
 
   console.log(`email on register: ${email}`);
+  */
+
   // create jwt
   // https://www.npmjs.com/package/jsonwebtoken
   const token = jwt.sign({
