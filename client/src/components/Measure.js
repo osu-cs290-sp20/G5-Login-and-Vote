@@ -38,15 +38,15 @@ const Measure = (props) => {
   // measures expire in 24 hours. That functionality
   // exists within the Measure model.
   return (
-    <div className='measure'>
-      <h3>{props.title}</h3>
-      <p>{props.desc}</p>
+    <div className="measure measureText">
+      <h3 className="measureText">{props.title}</h3>
+      <p className="measureText">{props.desc}</p>
       <form onSubmit={castVote}>
-        <label htmlFor="yes">Yay</label>
-        <input name="choice" type="radio" value="yes" id="yes" />
-        <label htmlFor="no">Nay</label>
-        <input name="choice" type="radio" value="no" id="no" />
-        <button>Cast Vote</button>
+          <input name="choice" type="radio" value="yes" id="yes" />
+          <label htmlFor="yes" className="measureText">Yay</label>
+          <input name="choice" type="radio" value="no" id="no" />
+          <label htmlFor="no" className="measureText">Nay</label>
+          <button className="voteButton">Cast Vote</button>
       </form>
       {measureId}
     </div>

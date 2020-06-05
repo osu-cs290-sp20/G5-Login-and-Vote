@@ -50,7 +50,7 @@ const CreateMeasure = (props) => {
 
   return (
     <>
-      <h1>Create a measure</h1>
+      <h1>Create a New Measure</h1>
       <form
         onSubmit={submitProposal}
         className="createMeasureForm">

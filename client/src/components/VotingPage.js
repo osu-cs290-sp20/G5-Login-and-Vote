@@ -41,41 +41,41 @@ const VotingPage = (props) => {
 
   return (
     <BrowserRouter>
-      <div>
-        <p>Welcome, {props.user}</p>
-        <ul className="nav">
-          <li>
-            <Link
-              to="/voting/create-measure">Propose a Measure</Link>
-          </li>
-          <li>
-            <Link to="/voting/view-measures">View Proposals</Link>
-          </li>
-        </ul>
-
-        <div className="votingSection">
-
-          <div className="createMeasure">
-            <Switch>
-              <Route path="/voting/create-measure">
-                <CreateMeasure
-                  {...props}
-                  createMeasure={createMeasure}
-                  token={props.token}
-                  userId={props.id}
-                  user={props.user} />
-              </Route>
-              <Route path="/voting/view-measures">
-                <ViewMeasures
-                  {...props}
-                  token={props.token}
-                  userId={props.id}
-                />
-              </Route>
-            </Switch>
+      <div className="header">
+        <h1 className="headerTitle">PLACEHOLDER TITLE</h1>
+      </div>
+      <div className="nav">
+          <div className="navItem userWelcome">
+            <img src="https://www.nicepng.com/png/full/136-1366211_group-of-10-guys-login-user-icon-png.png" alt="userIcon" className="userIcon"></img>
+            <p className="userName">Welcome, {props.user}</p>
           </div>
-
+          <Link to="/voting/create-measure" className="navItem linkButton">Propose a Measure</Link>
+          <Link to="/voting/view-measures" className="navItem linkButton">View Proposals</Link>
+          <Link to="/" className="navItem linkButton linkLogout">Logout</Link>
+      </div>
+      <div className="votingSection">
+        <div className="createMeasure">
+          <Switch>
+            <Route path="/voting/create-measure">
+              <CreateMeasure
+                {...props}
+                createMeasure={createMeasure}
+                token={props.token}
+                userId={props.id}
+                user={props.user} />
+            </Route>
+            <Route path="/voting/view-measures">
+              <ViewMeasures
+                {...props}
+                token={props.token}
+                userId={props.id}
+              />
+            </Route>
+          </Switch>
         </div>
+      </div>
+      <div className="footer">
+        <p>GROUP 5</p>
       </div>
     </BrowserRouter >
   );
