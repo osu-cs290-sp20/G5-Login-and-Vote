@@ -39,16 +39,20 @@ const Measure = (props) => {
   // exists within the Measure model.
   return (
     <div className="measure measureText">
-      <h3 className="measureText">{props.title}</h3>
-      <p className="measureText">{props.desc}</p>
-      <form onSubmit={castVote}>
+      <div className="sideTop">
+        <h3 className="measureText">{props.title}</h3>
+        <p className="measureText">{props.desc}</p>
+      </div>
+      <div className="sideBottom">
+        <form onSubmit={castVote} className="measureButtons">
           <input name="choice" type="radio" value="yes" id="yes" />
           <label htmlFor="yes" className="measureText">Yay</label>
           <input name="choice" type="radio" value="no" id="no" />
           <label htmlFor="no" className="measureText">Nay</label>
           <button className="voteButton">Cast Vote</button>
-      </form>
-      {measureId}
+        </form>
+        {measureId}
+      </div>
     </div>
   );
 }

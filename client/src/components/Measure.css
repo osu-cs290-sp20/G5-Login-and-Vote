@@ -1,8 +1,9 @@
 .measure {
-  flex: 1 0 100%;
+  flex: 1 1 100%;
   margin: 2px;
   padding: 20px;
   border: 2px solid #dadada;
+  border-radius: 5px;
   background-color: #ffffff;
 }
 
@@ -11,6 +12,7 @@
 }
 
 .voteButton {
+  padding: 5px;
   border: none;
   border-radius: 4px;
   color: #ffffff;

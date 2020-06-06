@@ -50,17 +50,38 @@ const CreateMeasure = (props) => {
 
   return (
     <>
-      <h1>Create a New Measure</h1>
-      <form
-        onSubmit={submitProposal}
-        className="createMeasureForm">
-        <div>
-          <label htmlFor="name"></label>
-          <input name="name" type="text" placeholder="Name of Measure" />
-          <textarea name="description" placeholder="An overview of your proposal "></textarea>
-          <button>Submit Measure</button>
+      <div className="createMeasureBox">
+        <div className="topSection">
+          <h2 className="formHeader">Propose a Measure</h2>
         </div>
-      </form>
+        <div className="middleSection">
+          
+        </div>
+        <div className="bottomSection">
+          <p className="formText">(instructions go here)</p>
+          <form
+            onSubmit={submitProposal}
+            className="createMeasureForm">
+            <div className="row">
+              <div className="colLeft">
+                <label className="formText">Name</label>
+              </div>
+              <div className="colRight">
+                <input name="name" type="text" className="userInput" placeholder="Your measure name..." />
+              </div>
+            </div>
+            <div className="row">
+              <div className="colLeft">
+                <label className="formText">Description</label>
+              </div>
+              <div className="colRight">
+                <textarea name="description" className="userInput" placeholder="Your proposal overview..."></textarea>
+              </div>
+            </div>
+            <button className="submitButton">Submit Measure</button>
+          </form>
+        </div>
+      </div>
     </>
   );
 }
