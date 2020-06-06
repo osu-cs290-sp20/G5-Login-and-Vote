@@ -50,37 +50,22 @@
   background-color: #dddddd;
 }
 
-.measureList {
-  flex: 0 0 200px;
-  align-items: center;
-  overflow-y: scroll;
-}
-
-.createdMeasure {
-  flex: 0 0 300px;
-  padding: 0;
-}
-
-.createMeasureForm {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
-
-.createMeasureForm > div {
+.createMeasure {
+  padding: 20px;
+  margin: 20px auto;
+  flex: 0 0 1000px;
   display: flex;
+  align-items: space-around;
   flex-direction: column;
-}
-
-.createMeasureForm input,
-.createMeasureForm textarea,
-.createMeasureForm button {
-  margin-top: 1.4rem;
 }
 
 .footer {
   padding: 15px;
-  margin: 0px 0px 0px 0px;
+  margin: 0px;
   text-align: center;
   background-color: #aaaaaa;
+}
+
+.footer p {
+  margin: 10px;
 }
