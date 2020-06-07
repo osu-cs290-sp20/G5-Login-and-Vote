@@ -55,7 +55,11 @@ const Register = (props) => {
         .then((response) => {
           if (response.status === 200) {
             invalidCredentials(false);
-            props.handleLogin(response.data);
+            props.handleLogin(
+              response.data._id,
+              response.data.name,
+              response.headers['auth-token'],
+              response.status);
           }
           console.log("res: " + response.data);
         })
