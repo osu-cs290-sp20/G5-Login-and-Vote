@@ -1,9 +1,27 @@
-.loginForm {
-  width: 400px;
+.formContainer {
   margin: 0 auto;
+  width: 400px;
+}
+
+.topForm {
+  padding: 20px;
+  border-radius: 5px 5px 0px 0px;
+  background-color: #E63946;
+}
+
+.middleForm {
+  height: 7px;
+  background-color: #F1FAEE;
+}
+
+.bottomForm {
+  border-radius: 0px 0px 5px 5px;
+  background-color: #dddddd;
+}
+
+.loginForm {
   padding: 0.6rem 0.8rem;
   border-radius: 0.4rem;
-  background-color: rgb(240,240,240);
 }
 
 form div {
@@ -16,27 +34,30 @@ div input {
   padding-left: 0.4rem;
   line-height: 2.6rem;
   margin-top: 1rem;
-  border-radius: 0.4rem;
-  border-style: none;
+  border: 1px solid #aaaaaa;
+  border-radius: 5px;
+  background-color: #ffffff;
 }
 
-.loginBtns {
+.loginButtons {
   display: flex;
   justify-content: flex-end;
   margin-top: 1rem;
 }
 
-.loginBtn {
-  flex: 0 0 50px;
-  font-weight: 300;
-  padding: 0.2rem 0.6rem;
-  box-shadow: none;
+.loginButton {
+  padding: 5px;
   border: none;
-  border-radius: 0.4rem;
-  background: rgb(0,0,140);
-  color: white;
+  border-radius: 4px;
+  color: #ffffff;
+  background-color: #E63946;
+  transition-duration: 0.5s;
+}
+
+.loginButton:hover {
+  background-color: #8B0000;
 }
 
 .errorMsg {
-  color: red;
+  color: #E63946;
 }
