@@ -32,7 +32,6 @@ const VotingPage = (props) => {
 
   return (
     <BrowserRouter>
-<<<<<<< HEAD
       <div className="header">
         <h1 className="headerTitle">PLACEHOLDER TITLE</h1>
       </div>
@@ -40,39 +39,6 @@ const VotingPage = (props) => {
           <div className="navItem userWelcome">
             <img src="https://www.nicepng.com/png/full/136-1366211_group-of-10-guys-login-user-icon-png.png" alt="userIcon" className="userIcon"></img>
             <p className="userName">Welcome, {props.user}</p>
-=======
-      <div>
-        <p>Welcome, {props.user}</p>
-        <ul className="nav">
-          <li>
-            <Link
-              to="/voting/create-measure">Propose a Measure</Link>
-          </li>
-          <li>
-            <Link to="/voting/view-measures">View Proposals</Link>
-          </li>
-        </ul>
-
-        <div className="votingSection">
-
-          <div className="createMeasure">
-            <Switch>
-              <Route path="/voting/create-measure">
-                <CreateMeasure
-                  {...props}
-                  token={props.token}
-                  userId={props.id}
-                  user={props.user} />
-              </Route>
-              <Route path="/voting/view-measures">
-                <ViewMeasures
-                  {...props}
-                  token={props.token}
-                  userId={props.id}
-                />
-              </Route>
-            </Switch>
->>>>>>> backup
           </div>
           <Link to="/voting/create-measure" className="navItem linkButton">Propose a Measure</Link>
           <Link to="/voting/view-measures" className="navItem linkButton">View Proposals</Link>
