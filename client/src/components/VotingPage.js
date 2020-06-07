@@ -36,13 +36,13 @@ const VotingPage = (props) => {
         <h1 className="headerTitle">PLACEHOLDER TITLE</h1>
       </div>
       <div className="nav">
-          <div className="navItem userWelcome">
-            <img src="https://www.nicepng.com/png/full/136-1366211_group-of-10-guys-login-user-icon-png.png" alt="userIcon" className="userIcon"></img>
-            <p className="userName">Welcome, {props.user}</p>
-          </div>
-          <Link to="/voting/create-measure" className="navItem linkButton">Propose a Measure</Link>
-          <Link to="/voting/view-measures" className="navItem linkButton">View Proposals</Link>
-          <Link to="/" className="navItem linkButton linkLogout">Logout</Link>
+        <div className="navItem userWelcome">
+          <img src="https://www.nicepng.com/png/full/136-1366211_group-of-10-guys-login-user-icon-png.png" alt="userIcon" className="userIcon"></img>
+          <p className="userName">Welcome, {props.user}</p>
+        </div>
+        <Link to="/voting/create-measure" className="navItem linkButton">Propose a Measure</Link>
+        <Link to="/voting/view-measures" className="navItem linkButton">View Proposals</Link>
+        <Link to="/" className="navItem linkButton linkLogout">Logout</Link>
       </div>
       <div className="votingSection">
         <div className="createMeasure">
@@ -50,7 +50,6 @@ const VotingPage = (props) => {
             <Route path="/voting/create-measure">
               <CreateMeasure
                 {...props}
-                createMeasure={createMeasure}
                 token={props.token}
                 userId={props.id}
                 user={props.user} />
