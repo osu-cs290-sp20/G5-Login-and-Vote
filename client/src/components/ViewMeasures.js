@@ -14,15 +14,15 @@ import axios from 'axios';
 // For now, the users can vote only once per measure.
 // The relevant data from /server/models/Measure.js 
 // should be displayed in each of the rendered measures.
-// Examples have been given on how to do this in the 
-// current code.
 //
 // Go to step 6, found in client/../../Measure.js
 
 const ViewMeasures = (props) => {
 
   const [measures, setMeasures] = useState([]);
-
+   /*Create controller function and pass into measure.js
+   Would allow splitting measures into groups. Votes cast/not cast
+   Could then render the two groups*/
   useEffect(() => {
     axios.get('/api/vote/view-measures')
       .then((response) => {
@@ -32,6 +32,8 @@ const ViewMeasures = (props) => {
           currentMeasures.push(response.data);
         }
         setMeasures(currentMeasures);
+        //might create function to pass into each measure,
+        // to get choice on any votes that have yet to be voted on
       });
   }, []);
 

@@ -39,6 +39,7 @@ const CreateMeasure = (props) => {
         no: 0
       },
     })
+      //I'm still confused as to how .then works
       .then((response) => {
         console.log(`res in createmeasure: ${response.data.name}`);
       })

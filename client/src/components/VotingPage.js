@@ -10,8 +10,6 @@ import {
 } from 'react-router-dom';
 import CreateMeasure from './CreateMeasure';
 import ViewMeasures from './ViewMeasures';
-import axios from 'axios';
-
 // 4)
 // Aside from the issue of the user being logged out 
 // after initial registration, a logged in user should
