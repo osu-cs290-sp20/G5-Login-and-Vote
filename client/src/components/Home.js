@@ -47,7 +47,6 @@ const Home = (props) => {
 
   return (
     <div className="home">
-      <p>status: {props.auth}</p>
       {login ?
         <Register handleLogin={handleLogin} />
         : <Login handleLogin={handleLogin} />}
