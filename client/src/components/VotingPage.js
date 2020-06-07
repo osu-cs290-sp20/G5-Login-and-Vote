@@ -10,10 +10,7 @@ import {
 } from 'react-router-dom';
 import CreateMeasure from './CreateMeasure';
 import ViewMeasures from './ViewMeasures';
-<<<<<<< HEAD
-=======
 
->>>>>>> e7051696e865b52fc8258485414f73bb03040965
 // 4)
 // Aside from the issue of the user being logged out 
 // after initial registration, a logged in user should
