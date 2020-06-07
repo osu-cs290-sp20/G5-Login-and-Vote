@@ -30,15 +30,6 @@ const VotingPage = (props) => {
 
   console.log(`all props: ${props}`);
 
-  const createMeasure = (measure) => {
-
-    console.log(`measure created: ${measure}`);
-    console.log(`id: ${props.id}`);
-    axios.get('/api/vote/create-measure')
-      .then((response) => {
-      });
-  }
-
   return (
     <BrowserRouter>
       <div className="header">

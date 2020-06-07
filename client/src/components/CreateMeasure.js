@@ -41,7 +41,6 @@ const CreateMeasure = (props) => {
     })
       .then((response) => {
         console.log(`res in createmeasure: ${response.data.name}`);
-        props.createMeasure(response.data.name);
       })
       .catch((err) => {
         console.log(err);
