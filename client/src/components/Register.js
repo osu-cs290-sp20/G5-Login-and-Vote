@@ -74,44 +74,55 @@ const Register = (props) => {
   }
 
   return (
-    <form
-      className="loginForm"
-      onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="name"></label>
-        <input
-          placeholder="Your name" //required
-          name="username"
-          type="text" />
+    <>
+      <div className="formContainer">
+        <div className="topForm">
+          <h2 className="formHeader">Register</h2>
+        </div>
+        <div className="middleForm">
+        </div>
+        <div className="bottomForm">
+          <form
+            className="loginForm"
+            onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="name"></label>
+              <input
+                placeholder="Your name" //required
+                name="username"
+                type="text" />
+            </div>
+            <div>
+              <label htmlFor="email"></label>
+              <input
+                placeholder="Your email" //required
+                name="useremail"
+                type="email" />
+            </div>
+            <div>
+              <label htmlFor="password"></label>
+              <input
+                placeholder="Password" //required
+                name="password"
+                type="password" />
+            </div>
+            <div>
+              <label htmlFor="verifypassword"></label>
+              <input
+                placeholder="Verify Password" //required
+                name="verifypassword"
+                type="password" />
+            </div>
+            <div className="errorMsg">
+              {invalid ? 'try again' : null}
+            </div>
+            <div className="loginButtons">
+              <button className="loginButton">Register</button>
+            </div>
+          </form>
+        </div>
       </div>
-      <div>
-        <label htmlFor="email"></label>
-        <input
-          placeholder="Your email" //required
-          name="useremail"
-          type="email" />
-      </div>
-      <div>
-        <label htmlFor="password"></label>
-        <input
-          placeholder="Password" //required
-          name="password"
-          type="password" />
-      </div>
-      <div>
-        <label htmlFor="verifypassword"></label>
-        <input
-          placeholder="Verify Password" //required
-          name="verifypassword"
-          type="password" />
-      </div>
-      <div className="errorMsg">
-        {invalid ? 'try again' : null}
-      </div>
-      <div className="loginBtns">
-        <button className="loginBtn">Register</button>
-      </div>
-    </form>
+    </>
   );
 }
 

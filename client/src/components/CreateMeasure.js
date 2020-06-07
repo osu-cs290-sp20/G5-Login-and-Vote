@@ -54,7 +54,6 @@ const CreateMeasure = (props) => {
           <h2 className="formHeader">Propose a Measure</h2>
         </div>
         <div className="middleSection">
-          
         </div>
         <div className="bottomSection">
           <p className="formText">(instructions go here)</p>
