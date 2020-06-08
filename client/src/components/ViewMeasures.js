@@ -46,7 +46,10 @@ const ViewMeasures = (props) => {
           userId={props.userId}
           data={measure[i]}
           title={measure[i].name}
-          desc={measure[i].description} />
+          desc={measure[i].description} 
+          yeses={measure[i].votes.yes}
+          nos={measure[i].votes.no}
+          />
       }
       )}
     </div>

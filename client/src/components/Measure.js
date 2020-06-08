@@ -50,6 +50,8 @@ const Measure = (props) => {
           <input name="choice" type="radio" value="no" id="no" />
           <label htmlFor="no" className="measureText">Nay</label>
           <button className="voteButton">Cast Vote</button>
+          <p className="yes">Votes in favor: {props.yeses}</p>
+          <p className="no">Votes against: {props.nos}</p>
         </form>
         {measureId}
       </div>
