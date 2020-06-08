@@ -37,6 +37,18 @@
   background-color: #8B0000;
 }
 
+.midBottom{
+  display: flex;
+  padding: 20px;
+}
+
+.result {
+  flex: 0 1 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #333333;
+}
+
 .sideBottom {
   padding: 20px;
   border-radius: 0px 0px 5px 5px;
