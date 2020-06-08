@@ -65,7 +65,7 @@ const CreateMeasure = (props) => {
         <div className="middleSection">
         </div>
         <div className="bottomSection">
-          <p className="formText">(instructions go here)</p>
+          <p className="formText">To create your own measure, please provide the requested information in the form</p>
           <form
             onSubmit={submitProposal}
             className="createMeasureForm">
