@@ -51,24 +51,13 @@ const Measure = (props) => {
             <input name="choice" type="radio" value="no" id="no" />
             <label htmlFor="no" className="measureText">Nay</label><br></br>
             <button className="voteButton">Cast Vote</button>
+            <p className="yes">Votes in favor: {props.yeses}</p>
+            <p className="no">Votes against: {props.nos}</p>
           </form>
         </div>
       </div>
       <div className="sideBottom">
-<<<<<<< HEAD
-        <form onSubmit={castVote} className="measureButtons">
-          <input name="choice" type="radio" value="yes" id="yes" />
-          <label htmlFor="yes" className="measureText">Yay</label>
-          <input name="choice" type="radio" value="no" id="no" />
-          <label htmlFor="no" className="measureText">Nay</label>
-          <button className="voteButton">Cast Vote</button>
-          <p className="yes">Votes in favor: {props.yeses}</p>
-          <p className="no">Votes against: {props.nos}</p>
-        </form>
-        {measureId}
-=======
         <p>Time left:</p>
->>>>>>> e49391c75b5263240e2ba4a980fd7c92f1070c1d
       </div>
     </div>
   );
