@@ -2,6 +2,7 @@
 // not yet functional 
 const router = require('express').Router();
 const verify = require('../verifyToken');
+//I don't believe we need to import user here
 const User = require('../model/User');
 const Measure = require('../model/Measure');
 // send the measures

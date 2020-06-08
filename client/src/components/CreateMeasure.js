@@ -15,8 +15,15 @@ import './CreateMeasure.css';
 // Go to step 6, found in client/../../Measure.js
 
 const CreateMeasure = (props) => {
+//Figuring out how to clear text input w/o state
+//www.seanbehan.com/how-to-reset-and-clear-form-fields-and-textareas-with-react-stateless-components/
+  let form = { }
+  const update = (e) => {
+    form[e.target.name] = e.target
+  }
 
   const submitProposal = (e) => {
+    
     e.preventDefault();
     const name = e.target.elements.name.value;
     const desc = e.target.elements.description.value;
@@ -41,6 +48,8 @@ const CreateMeasure = (props) => {
     })
       .then((response) => {
         console.log(`res in createmeasure: ${response.data.name}`);
+        form["name"].value = "";
+        form["description"].value = "";
       })
       .catch((err) => {
         console.log(err);
@@ -65,7 +74,7 @@ const CreateMeasure = (props) => {
                 <label className="formText">Name</label>
               </div>
               <div className="colRight">
-                <input name="name" type="text" className="userInput" placeholder="Your measure name..." />
+                <input name="name" type="text" className="userInput" placeholder="Your measure name..." onChange={update}/>
               </div>
             </div>
             <div className="row">
@@ -73,7 +82,7 @@ const CreateMeasure = (props) => {
                 <label className="formText">Description</label>
               </div>
               <div className="colRight">
-                <textarea name="description" className="userInput" placeholder="Your proposal overview..."></textarea>
+                <textarea name="description" className="userInput" placeholder="Your proposal overview..." onChange={update}></textarea>
               </div>
             </div>
             <button className="submitButton">Submit Measure</button>
@@ -82,6 +91,8 @@ const CreateMeasure = (props) => {
       </div>
     </>
   );
+  
 }
+
 
 export default CreateMeasure;

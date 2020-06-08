@@ -3,6 +3,8 @@ import {
   Link,
 } from 'react-router-dom';
 
+//Does this function serve any purpose? I can't see it being
+//exported to anywhere else...
 const Navigation = () => {
 
   return (
