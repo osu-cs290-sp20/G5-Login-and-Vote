@@ -37,10 +37,10 @@
   background-color: #8B0000;
 }
 
-.midBottom{
+/* .midBottom{
   display: flex;
   padding: 20px;
-}
+} */
 
 .result {
   flex: 0 1 100%;
