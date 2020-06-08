@@ -1,14 +1,27 @@
 .measure {
   flex: 1 1 100%;
-  margin: 2px;
-  padding: 20px;
+  margin: 5px;
   border: 2px solid #dadada;
   border-radius: 5px;
   background-color: #ffffff;
 }
 
+.sideTop {
+  display: flex;
+}
+
+.sideLeft {
+  padding: 20px;
+  width: 85%;
+}
+
 .measureText {
   color: #333333;
+}
+
+.sideRight {
+  width: 15%;
+  padding: 20px;
 }
 
 .voteButton {
@@ -22,4 +35,14 @@
 
 .voteButton:hover {
   background-color: #8B0000;
+}
+
+.sideBottom {
+  padding: 20px;
+  border-radius: 0px 0px 5px 5px;
+  background-color: #333333;
+}
+
+.sideBottom p {
+  margin: 0px;
 }
