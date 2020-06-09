@@ -2,33 +2,7 @@
 // not yet functional 
 const router = require('express').Router();
 const verify = require('../verifyToken');
-//I don't believe we need to import user here
-const User = require('../model/User');
 const Measure = require('../model/Measure');
-// send the measures
-
-// TODO _ CREATE and send the measure model
-//router.post('/', verify, async (req, res) => {
-/*
-console.log(`vote req: ${req.body}`);
-
-const measure = new Measure({
-  name: req.body.name,
-  description: req.body.desc,
-  creator: 'created by [user]',
-  votes: {
-    yes: req.body.votes['yes'],
-    no: req.body.votes['no']
-  },
-  voters: ['voter1', 'voter2', 'voter3']
-});
-
-const newMeasure = await measure.save();
-
-res.status(200).send(newMeasure);
-*/
-
-//});
 
 router.post('/create-measure', verify, async (req, res) => {
   console.log(`vote req: ${req.body}`);
@@ -72,7 +46,7 @@ router.post('/cast-vote', (req, res) => {
     }
     measure.save();
     console.log(measure);
-    res.status(200).send('vote cast. add vote and append the voter to the measure property');
+    res.status(200).send('vote cast');
   });
 });
 
