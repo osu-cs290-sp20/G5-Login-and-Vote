@@ -67,6 +67,7 @@ const Measure = (props) => {
         </div>
         <div className="sideRight">
           <form onSubmit={castVote} className="measureButtons">
+
             {
               votingOver ? 'Voting is over' :
                 <form>
@@ -75,12 +76,13 @@ const Measure = (props) => {
                   <input name="choice" type="radio" value="no" id="no" />
                   <label htmlFor="no" className="measureText">Nay</label><br></br>
                   <button className="voteButton">Cast Vote</button>
-                </form>
-            }
+                </form>}
           </form>
         </div>
       </div>
+
       <div className="sideBottom">
+
         {votingOver ? 'voting is over' :
           userHasVoted ?
             <div className="midBottom">
