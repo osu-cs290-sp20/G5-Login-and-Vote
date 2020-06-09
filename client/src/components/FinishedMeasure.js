@@ -1,4 +1,4 @@
-import './FinishedMeasure.css';
+/* import './FinishedMeasure.css';
 import React from 'react';
 // 6) 
 // Basic yes, no options along with the description
@@ -36,4 +36,4 @@ const FinishedMeasure = (props) => {
   );
 }
 
-export default FinishedMeasure;
+export default FinishedMeasure; */

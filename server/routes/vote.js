@@ -72,7 +72,7 @@ router.post('/cast-vote', (req, res) => {
     }
     measure.save();
     console.log(measure);
-    res.status(200).send('vote cast. add vote and append the voter to the measure property');
+    res.status(200).send('vote cast');
   });
 });
 
