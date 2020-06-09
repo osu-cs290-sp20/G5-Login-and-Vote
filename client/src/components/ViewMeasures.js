@@ -9,7 +9,7 @@ import Measure from './Measure';
 //import FinishedMeasure from './FinishedMeasure'
 import axios from 'axios';
 
-// 5b)
+// 5b
 // When this component is rendered, an api call
 // is made the populates the DOM with the existing
 // measures that have yet to expire (their end of life).
