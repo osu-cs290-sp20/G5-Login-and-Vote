@@ -19,16 +19,16 @@ import axios from 'axios';
 // the api calls and navigate through the code 
 // using the function names that are used for 
 // authentication in server/(verifyToken, router/auth, routes/vote)
-const Measure = (props) => {
 
-  const measureId = props.data._id;
+const Measure = (props) => {
 
   const currDate = new Date().getTime();
   const endDate = new Date(props.data.endDate).getTime();
   const [counter, setCounter] = useState(currDate);
   const [votingOver, endVoting] = useState(false);
-  const userHasVoted = props.data.voters.includes(props.userId);
 
+  const userHasVoted = props.data.voters.includes(props.userId);
+  const measureId = props.data._id;
 
   useEffect(() => {
     let time = setInterval(() => setCounter(currDate + 1000), 1000);
@@ -80,6 +80,11 @@ const Measure = (props) => {
           </form>
         </div>
       </div>
+
+      {/* <div className="midBottom">
+        <p className="result">Votes in favor: {props.yeses}</p>
+        <p className="result">Votes against: {props.nos}</p>
+      </div> */}
 
       <div className="sideBottom">
 
