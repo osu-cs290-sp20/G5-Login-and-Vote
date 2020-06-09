@@ -52,7 +52,11 @@
   .FinishedBottom {
     padding: 20px;
     border-radius: 0px 0px 5px 5px;
+<<<<<<< HEAD
     background-color: #1D3557;
+=======
+    background-color: #E63946;
+>>>>>>> 6b311fef3eba70b2d14e2fbbcda62fd143d1d0af
   }
   
   .FinishedBottom p {
