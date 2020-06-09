@@ -30,6 +30,8 @@ const Measure = (props) => {
   const userHasVoted = props.data.voters.includes(props.userId);
   const measureId = props.data._id;
 
+  
+
   useEffect(() => {
     let time = setInterval(() => setCounter(currDate + 1000), 1000);
     if (currDate >= endDate) {
@@ -40,6 +42,20 @@ const Measure = (props) => {
     // https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
     return () => clearTimeout(time);
   }, [counter]);
+
+  const retTime = (seconds) => {
+    if (seconds > 60) {
+      if (seconds > 3600) {
+        return (Math.round(seconds/3600) + " Hours");
+      }
+      else {
+        return (Math.round(seconds/60) + " Minutes");
+      }
+    }
+    else {
+      return (Math.round(seconds) + " Seconds");
+    }
+  }
 
   const castVote = (e) => {
     e.preventDefault();
@@ -91,12 +107,12 @@ const Measure = (props) => {
         {votingOver ? 'voting is over' :
           userHasVoted ?
             <div className="midBottom">
-              <p>Epoch Time left: {(endDate - counter) / 864} seconds</p>
+              <p>Time left: {retTime((endDate - counter) / 864)}</p>
               <p className="result">Votes in favor: {props.yeses}</p>
               <p className="result">Votes against: {props.nos}</p>
             </div> :
             <div className="midBottom">
-              <p>Epoch Time left: {(endDate - counter) / 864} seconds</p>
+              <p>Time left: {retTime((endDate - counter) / 864)}</p>
               <p className="result">Hasn't been been voted on. Cast your vote.</p>
             </div>}
       </div>
