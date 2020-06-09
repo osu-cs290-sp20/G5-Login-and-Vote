@@ -5,7 +5,8 @@ import React,
   useState
 } from 'react';
 import Measure from './Measure';
-import FinishedMeasure from './FinishedMeasure'
+// dont need this
+//import FinishedMeasure from './FinishedMeasure'
 import axios from 'axios';
 
 // 5b)
@@ -62,6 +63,7 @@ const ViewMeasures = (props) => {
   return (
     <div className="measures">
       {measures.map((measure, i) => {
+        /*
         if (measure[i].voters.includes(props.userId)) {
           return <FinishedMeasure
             {...props}
@@ -75,18 +77,19 @@ const ViewMeasures = (props) => {
           />
         }
         else {
-          return <Measure
-            {...props}
-            key={i}
-            userId={props.userId}
-            data={measure[i]}
-            title={measure[i].name}
-            desc={measure[i].description}
-            yeses={measure[i].votes.yes}
-            nos={measure[i].votes.no}
-          />
-        }
+          */
+        return <Measure
+          {...props}
+          key={i}
+          userId={props.userId}
+          data={measure[i]}
+          title={measure[i].name}
+          desc={measure[i].description}
+          yeses={measure[i].votes.yes}
+          nos={measure[i].votes.no}
+        />
       }
+        //}
       )}
     </div>
   )

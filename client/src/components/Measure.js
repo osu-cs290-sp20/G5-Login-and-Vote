@@ -1,5 +1,8 @@
 import './Measure.css';
-import React from 'react';
+import React, {
+  useEffect,
+  useState
+} from 'react';
 import axios from 'axios';
 
 // 6) 
@@ -16,9 +19,27 @@ import axios from 'axios';
 // the api calls and navigate through the code 
 // using the function names that are used for 
 // authentication in server/(verifyToken, router/auth, routes/vote)
+
 const Measure = (props) => {
 
+  const currDate = new Date().getTime();
+  const endDate = new Date(props.data.endDate).getTime();
+  const [counter, setCounter] = useState(currDate);
+  const [votingOver, endVoting] = useState(false);
+
+  const userHasVoted = props.data.voters.includes(props.userId);
   const measureId = props.data._id;
+
+  useEffect(() => {
+    let time = setInterval(() => setCounter(currDate + 1000), 1000);
+    if (currDate >= endDate) {
+      endVoting(true);
+    }
+    console.log(counter)
+    // prevents memory leak
+    // https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
+    return () => clearTimeout(time);
+  }, [counter]);
 
   const castVote = (e) => {
     e.preventDefault();
@@ -46,20 +67,38 @@ const Measure = (props) => {
         </div>
         <div className="sideRight">
           <form onSubmit={castVote} className="measureButtons">
-            <input name="choice" type="radio" value="yes" id="yes" />
-            <label htmlFor="yes" className="measureText">Yay</label><br></br>
-            <input name="choice" type="radio" value="no" id="no" />
-            <label htmlFor="no" className="measureText">Nay</label><br></br>
-            <button className="voteButton">Cast Vote</button>
+
+            {
+              votingOver ? 'Voting is over' :
+                <form>
+                  <input name="choice" type="radio" value="yes" id="yes" />
+                  <label htmlFor="yes" className="measureText">Yay</label><br></br>
+                  <input name="choice" type="radio" value="no" id="no" />
+                  <label htmlFor="no" className="measureText">Nay</label><br></br>
+                  <button className="voteButton">Cast Vote</button>
+                </form>}
           </form>
         </div>
       </div>
+
       {/* <div className="midBottom">
         <p className="result">Votes in favor: {props.yeses}</p>
         <p className="result">Votes against: {props.nos}</p>
       </div> */}
+
       <div className="sideBottom">
-        <p>Time left:</p>
+
+        {votingOver ? 'voting is over' :
+          userHasVoted ?
+            <div className="midBottom">
+              <p>Epoch Time left: {(endDate - counter) / 864} seconds</p>
+              <p className="result">Votes in favor: {props.yeses}</p>
+              <p className="result">Votes against: {props.nos}</p>
+            </div> :
+            <div className="midBottom">
+              <p>Epoch Time left: {(endDate - counter) / 864} seconds</p>
+              <p className="result">Hasn't been been voted on. Cast your vote.</p>
+            </div>}
       </div>
     </div>
   );
