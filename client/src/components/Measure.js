@@ -26,8 +26,10 @@ const Measure = (props) => {
   const endDate = new Date(props.data.endDate).getTime();
   const [counter, setCounter] = useState(currDate);
   const [votingOver, endVoting] = useState(false);
+  
 
-  const userHasVoted = props.data.voters.includes(props.userId);
+  var userHasVoted = props.data.voters.includes(props.userId);
+  const [vote, checkVote] = useState(userHasVoted)
   const measureId = props.data._id;
 
   
@@ -42,6 +44,13 @@ const Measure = (props) => {
     // https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
     return () => clearTimeout(time);
   }, [counter]);
+
+  useEffect(() => {
+    if(vote) {
+      userHasVoted = props.data.voters.includes(props.userId);
+    }
+  })
+
 
   const retTime = (seconds) => {
     if (seconds > 60) {
@@ -68,8 +77,9 @@ const Measure = (props) => {
     })
     ).then((response) => {
       props.history.push('/voting');
-      console.log(response);
+      console.log(response);   
     });
+    checkVote(true);
   }
 
   // measures expire in 24 hours. That functionality
@@ -83,9 +93,9 @@ const Measure = (props) => {
         </div>
         <div className="sideRight">
           <form onSubmit={castVote} className="measureButtons">
-
             {
               votingOver ? 'Voting is over' :
+              vote ? <div></div> :
                 <form>
                   <input name="choice" type="radio" value="yes" id="yes" />
                   <label htmlFor="yes" className="measureText">Yay</label><br></br>
@@ -105,7 +115,7 @@ const Measure = (props) => {
       <div className="sideBottom">
 
         {votingOver ? 'voting is over' :
-          userHasVoted ?
+          vote ?
             <div className="midBottom">
               <p>Time left: {retTime((endDate - counter) / 864)}</p>
               <p className="result">Votes in favor: {props.yeses}</p>
