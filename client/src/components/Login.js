@@ -99,7 +99,6 @@ const Login = (props) => {
             <div className="loginButtons">
               <button className="loginButton">Login</button>
             </div>
-            {`user: ${user} status: ${status} token: ${token}`}
           </form>
         </div>
       </div>
