@@ -54,6 +54,10 @@ const Measure = (props) => {
           </form>
         </div>
       </div>
+      {/* <div className="midBottom">
+        <p className="result">Votes in favor: {props.yeses}</p>
+        <p className="result">Votes against: {props.nos}</p>
+      </div> */}
       <div className="sideBottom">
         <p>Time left:</p>
       </div>
