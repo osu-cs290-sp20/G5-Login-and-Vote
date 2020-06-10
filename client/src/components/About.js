@@ -5,8 +5,14 @@ const About = (props) => {
     return (
         <div className="aboutWrapper">
             <div className="aboutPage">
+                <div className="divider"></div>
                 <div className="introductionSection">
+                    <div className="introductionContext">
+                        <h1>ABOUT</h1>
+                        <p>A fast and easy way to share your thoughts</p>
+                    </div>
                 </div>
+                <div className="divider"></div>
                 <div className="featureSection">
                     <div className="featureContainer">
                         <div className="featureBox">

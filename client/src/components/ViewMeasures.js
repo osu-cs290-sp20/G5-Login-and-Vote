@@ -61,11 +61,25 @@ const ViewMeasures = (props) => {
   }, []);
 
   return (
-    <div className="measures">
-      {measures.map((measure, i) => {
-        /*
-        if (measure[i].voters.includes(props.userId)) {
-          return <FinishedMeasure
+    <div className="viewMeasures">
+      <div className="measures">
+        {measures.map((measure, i) => {
+          /*
+          if (measure[i].voters.includes(props.userId)) {
+            return <FinishedMeasure
+              {...props}
+              key={i}
+              userId={props.userId}
+              data={measure[i]}
+              title={measure[i].name}
+              desc={measure[i].description}
+              yeses={measure[i].votes.yes}
+              nos={measure[i].votes.no}
+            />
+          }
+          else {
+            */
+          return <Measure
             {...props}
             key={i}
             userId={props.userId}
@@ -76,21 +90,9 @@ const ViewMeasures = (props) => {
             nos={measure[i].votes.no}
           />
         }
-        else {
-          */
-        return <Measure
-          {...props}
-          key={i}
-          userId={props.userId}
-          data={measure[i]}
-          title={measure[i].name}
-          desc={measure[i].description}
-          yeses={measure[i].votes.yes}
-          nos={measure[i].votes.no}
-        />
-      }
-        //}
-      )}
+          //}
+        )}
+      </div>
     </div>
   )
 }

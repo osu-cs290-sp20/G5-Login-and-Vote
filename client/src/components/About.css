@@ -1,6 +1,32 @@
+.introductionSection {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    height: 250px;
+    background-color: #457B9D;
+}
+
+.introductionContext {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.divider {
+    height: 5px;
+    background-color: #F1FAEE;
+}
+
+.featureSection {
+    display: grid;
+    justify-items: center;
+    padding: 20px 0px 20px 0px;
+}
+
 .featureContainer {
     display: grid;
     grid-template-columns: 50% 50%;
+    width: 60%;
 }
 
 .featureBox {

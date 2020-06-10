@@ -62,27 +62,25 @@ const VotingPage = (props) => {
           </Dropdown>     
         </div>
         <div className="votingSection">
-          <div className="createMeasure">
-            <Switch>
-              <Route path="/voting/about">
-                <About />
-              </Route>
-              <Route path="/voting/create-measure">
-                <CreateMeasure
-                  {...props}
-                  token={props.token}
-                  userId={props.id}
-                  user={props.user} />
-              </Route>
-              <Route path="/voting/view-measures">
-                <ViewMeasures
-                  {...props}
-                  token={props.token}
-                  userId={props.id}
-                />
-              </Route>
-            </Switch>
-          </div>
+          <Switch>
+            <Route path="/voting/about">
+              <About />
+            </Route>
+            <Route path="/voting/create-measure">
+              <CreateMeasure
+                {...props}
+                token={props.token}
+                userId={props.id}
+                user={props.user} />
+            </Route>
+            <Route path="/voting/view-measures">
+              <ViewMeasures
+                {...props}
+                token={props.token}
+                userId={props.id}
+              />
+            </Route>
+          </Switch>
         </div>
       </div>
     </BrowserRouter >
