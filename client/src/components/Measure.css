@@ -1,5 +1,5 @@
 .measure {
-  flex: 1 1 100%;
+  flex: 1 50%;
   margin: 5px;
   border: 2px solid #dadada;
   border-radius: 5px;
@@ -25,7 +25,7 @@
 
 .measureButtons {
   display: grid;
-  grid-template-rows: 33% 33% 33%;
+  grid-template-rows: 25% 25% 50%;
 }
 
 .voteChoice {
