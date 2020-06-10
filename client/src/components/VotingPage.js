@@ -45,12 +45,12 @@ const VotingPage = (props) => {
           <div className="navItem userWelcome">
             <img src="https://www.nicepng.com/png/full/136-1366211_group-of-10-guys-login-user-icon-png.png" alt="userIcon" className="userIcon"></img>
             <p className="userName">Welcome, {props.user}</p>
-          </div>
-          {/* react-bootstrap.github.io/components/dropdowns */}
+          </div>    
           <Link to="/voting/about" className="navItem linkButton">About</Link>
           <Link to="/voting/create-measure" className="navItem linkButton">Propose a Measure</Link>
           <Link to="/voting/view-measures" className="navItem linkButton">View Proposals</Link>
-          {/* <Link to="/" className="navItem linkButton linkLogout">Logout</Link> */}
+          {/* react-bootstrap.github.io/components/dropdowns */}
+          {/* Some bootstrap for kicks and giggles! */}
           <Dropdown className="navItem settings linkButton linkLogout">
             <Dropdown.Toggle>
               Account
