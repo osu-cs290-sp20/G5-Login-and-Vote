@@ -38,7 +38,8 @@ const ViewMeasures = (props) => {
   }, []);
 
   return (
-    <div className="measures">
+    <div className="viewMeasures">
+      <div className="measures">
       {measures.map((measure, i) => {
         return <Measure
           {...props}
