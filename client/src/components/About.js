@@ -8,7 +8,7 @@ const About = (props) => {
         <div className="divider"></div>
         <div className="introductionSection">
           <div className="introductionContext">
-            <h1>ABOUT CLOUDVOTE</h1>
+            <h1>CLOUDVOTE</h1>
             <p>A fast and easy way to share your thoughts</p>
           </div>
         </div>
