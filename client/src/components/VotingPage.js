@@ -8,6 +8,7 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
+import { Dropdown } from 'react-bootstrap';
 import About from './About';
 import CreateMeasure from './CreateMeasure';
 import ViewMeasures from './ViewMeasures';
@@ -45,10 +46,20 @@ const VotingPage = (props) => {
             <img src="https://www.nicepng.com/png/full/136-1366211_group-of-10-guys-login-user-icon-png.png" alt="userIcon" className="userIcon"></img>
             <p className="userName">Welcome, {props.user}</p>
           </div>
+          {/* react-bootstrap.github.io/components/dropdowns */}
           <Link to="/voting/about" className="navItem linkButton">About</Link>
           <Link to="/voting/create-measure" className="navItem linkButton">Propose a Measure</Link>
           <Link to="/voting/view-measures" className="navItem linkButton">View Proposals</Link>
-          <Link onClick={logout} to="/" className="navItem linkButton linkLogout">Logout</Link>
+          {/* <Link to="/" className="navItem linkButton linkLogout">Logout</Link> */}
+          <Dropdown className="navItem settings linkButton linkLogout">
+            <Dropdown.Toggle>
+              Account
+            </Dropdown.Toggle>
+              <Dropdown.Menu>
+              <Link to="#" className="navItem linkButton dropdown">Settings</Link>
+              <Link onClick={logout} to="/" className="navItem linkButton dropdown linkLogout">Logout</Link>
+            </Dropdown.Menu>
+          </Dropdown>     
         </div>
         <div className="votingSection">
           <div className="createMeasure">

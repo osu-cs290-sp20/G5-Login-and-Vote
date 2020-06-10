@@ -27,10 +27,10 @@ const Measure = (props) => {
   const [counter, setCounter] = useState(currDate);
   const [votingOver, endVoting] = useState(false);
 
-  const userHasVoted = props.data.voters.includes(props.userId);
-  const measureId = props.data._id;
 
-  
+  var userHasVoted = props.data.voters.includes(props.userId);
+  //const [vote, checkVote] = useState(false)
+  const measureId = props.data._id;
 
   useEffect(() => {
     let time = setInterval(() => setCounter(currDate + 1000), 1000);
@@ -43,13 +43,20 @@ const Measure = (props) => {
     return () => clearTimeout(time);
   }, [currDate, endDate]);
 
+  /* useEffect(() => {
+    if (vote) {
+      
+    }
+  }, [vote]); */
+
+
   const retTime = (seconds) => {
     if (seconds > 60) {
       if (seconds > 3600) {
-        return (Math.round(seconds/3600) + " Hours");
+        return (Math.round(seconds / 3600) + " Hours");
       }
       else {
-        return (Math.round(seconds/60) + " Minutes");
+        return (Math.round(seconds / 60) + " Minutes");
       }
     }
     else {
@@ -70,6 +77,7 @@ const Measure = (props) => {
       props.history.push('/voting');
       console.log(response);
     });
+    //checkVote(true);
   }
 
   // measures expire in 24 hours. That functionality
