@@ -37,11 +37,11 @@ const Measure = (props) => {
     if (currDate >= endDate) {
       endVoting(true);
     }
-    console.log(counter)
+    // console.log(counter)
     // prevents memory leak
     // https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
     return () => clearTimeout(time);
-  }, [counter]);
+  }, [currDate, endDate]);
 
   const retTime = (seconds) => {
     if (seconds > 60) {
@@ -82,18 +82,19 @@ const Measure = (props) => {
           <p className="measureText">{props.desc}</p>
         </div>
         <div className="sideRight">
-          <form onSubmit={castVote} className="measureButtons">
-
-            {
-              votingOver ? 'Voting is over' :
-                <form>
-                  <input name="choice" type="radio" value="yes" id="yes" />
-                  <label htmlFor="yes" className="measureText">Yay</label><br></br>
-                  <input name="choice" type="radio" value="no" id="no" />
-                  <label htmlFor="no" className="measureText">Nay</label><br></br>
-                  <button className="voteButton">Cast Vote</button>
-                </form>}
-          </form>
+            {votingOver && !userHasVoted ? '' :
+              <form onSubmit={castVote} className="measureButtons">
+                <div className="voteChoice">
+                  <input name="choice" type="radio" value="yes" id="yes" className="voteButton" />
+                  <label htmlFor="yes" className="voteLabel">Yay</label>
+                </div>
+                <div className="voteChoice">
+                  <input name="choice" type="radio" value="no" id="no" className="voteButton" />
+                  <label htmlFor="no" className="voteLabel">Nay</label>
+                </div>
+                <button className="castButton">Cast Vote</button>
+              </form>
+            }
         </div>
       </div>
 
@@ -103,17 +104,16 @@ const Measure = (props) => {
       </div> */}
 
       <div className="sideBottom">
-
-        {votingOver ? 'voting is over' :
+        {votingOver ? 'The voting period for this measure has ended' :
           userHasVoted ?
             <div className="midBottom">
-              <p>Time left: {retTime((endDate - counter) / 864)}</p>
+              <p className="timer">Time left: {retTime((endDate - counter) / 864)}</p>
               <p className="result">Votes in favor: {props.yeses}</p>
               <p className="result">Votes against: {props.nos}</p>
             </div> :
             <div className="midBottom">
-              <p>Time left: {retTime((endDate - counter) / 864)}</p>
-              <p className="result">Hasn't been been voted on. Cast your vote.</p>
+              <p className="timer">Time left: {retTime((endDate - counter) / 864)}</p>
+              <p className="result">Cast your vote to see the results</p>
             </div>}
       </div>
     </div>
