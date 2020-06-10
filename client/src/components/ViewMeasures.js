@@ -42,19 +42,21 @@ const ViewMeasures = (props) => {
   }, []);
 
   return (
-    <div className="measures">
-      {measures.map((measure, i) => {
-        return <Measure
-          {...props}
-          key={i}
-          userId={props.userId}
-          data={measure}
-          title={measure.name}
-          desc={measure.description}
-          yeses={measure.votes.yes}
-          nos={measure.votes.no}
-        />
-      })}
+    <div className="viewMeasures">
+      <div className="measures">
+        {measures.map((measure, i) => {
+          return <Measure
+            {...props}
+            key={i}
+            userId={props.userId}
+            data={measure}
+            title={measure.name}
+            desc={measure.description}
+            yeses={measure.votes.yes}
+            nos={measure.votes.no}
+          />
+        })}
+      </div>
     </div>
   )
 }
