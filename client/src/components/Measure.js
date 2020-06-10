@@ -45,12 +45,6 @@ const Measure = (props) => {
     return () => clearTimeout(time);
   }, [currDate, endDate]);
 
-  /* useEffect(() => {
-    if (voting) {
-      userHasVoted = props.data.voters.includes(props.userId);
-    }
-  }, [voting]); */
-
 
   const retTime = (seconds) => {
     if (seconds > 60) {
@@ -121,11 +115,6 @@ const Measure = (props) => {
           }
         </div>
       </div>
-
-      {/* <div className="midBottom">
-        <p className="result">Votes in favor: {props.yeses}</p>
-        <p className="result">Votes against: {props.nos}</p>
-      </div> */}
 
       <div className="sideBottom">
         {votingOver ? 'The voting period for this measure has ended' :

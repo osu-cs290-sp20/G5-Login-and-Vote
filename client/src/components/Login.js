@@ -42,12 +42,6 @@ const Login = (props) => {
           setStatus(response.status);
           setToken(response.headers['auth-token']);
           setUserName(response.data.name);
-          /* console.log(`
-     Login {\n
-         LoginUser: ${response.data}\n  
-         LoginToken: ${response.headers['auth-token']}\n  
-         LoginStatus: ${response.status}\n
-     }`);*/
           props.handleLogin(
             response.data._id,
             response.data.name,
