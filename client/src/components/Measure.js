@@ -26,13 +26,11 @@ const Measure = (props) => {
   const endDate = new Date(props.data.endDate).getTime();
   const [counter, setCounter] = useState(currDate);
   const [votingOver, endVoting] = useState(false);
-  
+
 
   var userHasVoted = props.data.voters.includes(props.userId);
-  const [vote, checkVote] = useState(userHasVoted)
+  //const [vote, checkVote] = useState(false)
   const measureId = props.data._id;
-
-  
 
   useEffect(() => {
     let time = setInterval(() => setCounter(currDate + 1000), 1000);
@@ -45,20 +43,20 @@ const Measure = (props) => {
     return () => clearTimeout(time);
   }, [counter]);
 
-  useEffect(() => {
-    if(vote) {
-      userHasVoted = props.data.voters.includes(props.userId);
+  /* useEffect(() => {
+    if (vote) {
+      
     }
-  })
+  }, [vote]); */
 
 
   const retTime = (seconds) => {
     if (seconds > 60) {
       if (seconds > 3600) {
-        return (Math.round(seconds/3600) + " Hours");
+        return (Math.round(seconds / 3600) + " Hours");
       }
       else {
-        return (Math.round(seconds/60) + " Minutes");
+        return (Math.round(seconds / 60) + " Minutes");
       }
     }
     else {
@@ -77,9 +75,9 @@ const Measure = (props) => {
     })
     ).then((response) => {
       props.history.push('/voting');
-      console.log(response);   
+      console.log(response);
     });
-    checkVote(true);
+    //checkVote(true);
   }
 
   // measures expire in 24 hours. That functionality
@@ -95,14 +93,14 @@ const Measure = (props) => {
           <form onSubmit={castVote} className="measureButtons">
             {
               votingOver ? 'Voting is over' :
-              vote ? <div></div> :
-                <form>
-                  <input name="choice" type="radio" value="yes" id="yes" />
-                  <label htmlFor="yes" className="measureText">Yay</label><br></br>
-                  <input name="choice" type="radio" value="no" id="no" />
-                  <label htmlFor="no" className="measureText">Nay</label><br></br>
-                  <button className="voteButton">Cast Vote</button>
-                </form>}
+                userHasVoted ? <div></div> :
+                  <form>
+                    <input name="choice" type="radio" value="yes" id="yes" />
+                    <label htmlFor="yes" className="measureText">Yay</label><br></br>
+                    <input name="choice" type="radio" value="no" id="no" />
+                    <label htmlFor="no" className="measureText">Nay</label><br></br>
+                    <button className="voteButton">Cast Vote</button>
+                  </form>}
           </form>
         </div>
       </div>
@@ -115,7 +113,7 @@ const Measure = (props) => {
       <div className="sideBottom">
 
         {votingOver ? 'voting is over' :
-          vote ?
+          userHasVoted ?
             <div className="midBottom">
               <p>Time left: {retTime((endDate - counter) / 864)}</p>
               <p className="result">Votes in favor: {props.yeses}</p>
