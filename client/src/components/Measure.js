@@ -90,19 +90,19 @@ const Measure = (props) => {
           <p className="measureText">{props.desc}</p>
         </div>
         <div className="sideRight">
-            {votingOver && !userHasVoted ? '' :
-              <form onSubmit={castVote} className="measureButtons">
-                <div className="voteChoice">
-                  <input name="choice" type="radio" value="yes" id="yes" className="voteButton" />
-                  <label htmlFor="yes" className="voteLabel">Yay</label>
-                </div>
-                <div className="voteChoice">
-                  <input name="choice" type="radio" value="no" id="no" className="voteButton" />
-                  <label htmlFor="no" className="voteLabel">Nay</label>
-                </div>
-                <button className="castButton">Cast Vote</button>
-              </form>
-            }
+          {votingOver && !userHasVoted ? '' :
+            <form onSubmit={castVote} className="measureButtons">
+              <div className="voteChoice">
+                <input name="choice" type="radio" value="yes" id="yes" className="voteButton" />
+                <label htmlFor="yes" className="voteLabel">Yay</label>
+              </div>
+              <div className="voteChoice">
+                <input name="choice" type="radio" value="no" id="no" className="voteButton" />
+                <label htmlFor="no" className="voteLabel">Nay</label>
+              </div>
+              <button className="castButton">Cast Vote</button>
+            </form>
+          }
         </div>
       </div>
 
