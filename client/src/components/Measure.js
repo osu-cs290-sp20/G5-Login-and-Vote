@@ -97,7 +97,6 @@ const Measure = (props) => {
         measureId: measureId
       })
       ).then((response) => {
-        props.history.push('/voting');
         console.log(response);
       });
       //keeping track of vote
