@@ -28,7 +28,32 @@ const Measure = (props) => {
   const [votingOver, endVoting] = useState(false);
   const [yays, setYays] = useState(props.yeses);
   const [nays, setNays] = useState(props.nos);
+  const myDate = new Date(props.data.endDate);
+  var m = myDate.getMonth();
+  var d = myDate.getDay();
+  var y = myDate.getFullYear();
+  var h = myDate.getUTCHours();
+  var mi = myDate.getMinutes();
 
+  h = h % 12;
+  if (h === 0) {
+    h = 12;
+  }
+
+  if (mi < 10) {
+    mi = "0" + mi;
+  }
+
+  const getDayTime = (hour) => {
+    if (hour > 12) {
+      return "PM";
+    }
+    else {
+      return "AM";
+    }
+  }
+
+  var fulldate = m + '/' + d + "/" + y + "  " + h + ":" + mi + " " + getDayTime(h)
 
   var userHasVoted = props.data.voters.includes(props.userId);
   const [voting, checkVote] = useState(false)
@@ -44,12 +69,6 @@ const Measure = (props) => {
     // https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
     return () => clearTimeout(time);
   }, [currDate, endDate]);
-
-  /* useEffect(() => {
-    if (voting) {
-      userHasVoted = props.data.voters.includes(props.userId);
-    }
-  }, [voting]); */
 
 
   const retTime = (seconds) => {
@@ -84,10 +103,10 @@ const Measure = (props) => {
       //keeping track of vote
       checkVote(true);
       if (e.target.elements.choice.value === "yes") {
-        setYays(yays+1);
+        setYays(yays + 1);
       }
       else {
-        setNays(nays+1);
+        setNays(nays + 1);
       }
     }
     //no choice was selected
@@ -122,13 +141,11 @@ const Measure = (props) => {
         </div>
       </div>
 
-      {/* <div className="midBottom">
-        <p className="result">Votes in favor: {props.yeses}</p>
-        <p className="result">Votes against: {props.nos}</p>
-      </div> */}
-
       <div className="sideBottom">
-        {votingOver ? 'The voting period for this measure has ended' :
+        {votingOver ? <div>
+          <p>The voting period for this measure has ended</p>
+          <p>Expired on: {fulldate}</p>
+        </div> :
           userHasVoted ?
             <div className="midBottom">
               <p className="timer">Time left: {retTime((endDate - counter) / 864)}</p>
