@@ -68,15 +68,23 @@ const Measure = (props) => {
     e.preventDefault();
     console.log(e.target.elements.choice.value);
 
-    axios.post('/api/vote/cast-vote', ({
-      decision: e.target.elements.choice.value,
-      userId: props.userId,
-      measureId: measureId
-    })
-    ).then((response) => {
-      props.history.push('/voting');
-      console.log(response);
-    });
+    if (e.target.elements.choice.value !== '') {
+      console.log('choice is not null');
+      axios.post('/api/vote/cast-vote', ({
+        decision: e.target.elements.choice.value,
+        userId: props.userId,
+        measureId: measureId
+      })
+      ).then((response) => {
+        props.history.push('/voting');
+        console.log(response);
+      });
+    }
+    else {
+      console.log('choice is null');
+    }
+    
+    
     //checkVote(true);
   }
 
