@@ -47,8 +47,8 @@
 
 .featureContainer {
     display: grid;
-    grid-template-columns: 50% 50%;
-    width: 60%;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); 
+    width: 80%;
 }
 
 .featureBox {
