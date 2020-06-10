@@ -29,7 +29,7 @@ const Home = (props) => {
     // Go to step 3, parts a and b, located in 
     // Login and Register, respectively.
     props.handleAuth(id, user, token, status);
-    props.history.push('/voting');
+    props.history.push('/voting/about');
   }
 
   const showOptions = (e) => {
