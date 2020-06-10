@@ -31,6 +31,10 @@ const VotingPage = (props) => {
 
   console.log(`all props: ${props}`);
 
+  const logout = () => {
+    props.history.push('/');
+  }
+
   return (
     <BrowserRouter>
       <div className="wrapper">
@@ -47,16 +51,7 @@ const VotingPage = (props) => {
           <Link to="/voting/about" className="navItem linkButton">About</Link>
           <Link to="/voting/create-measure" className="navItem linkButton">Propose a Measure</Link>
           <Link to="/voting/view-measures" className="navItem linkButton">View Proposals</Link>
-          {/* <Link to="/" className="navItem linkButton linkLogout">Logout</Link> */}
-          <Dropdown className="navItem settings linkButton linkLogout">
-            <Dropdown.Toggle>
-              Account
-            </Dropdown.Toggle>
-              <Dropdown.Menu>
-              <Link to="#" className="navItem linkButton dropdown">Settings</Link>
-              <Link to="/" className="navItem linkButton linkLogout dropdown">Logout</Link>
-            </Dropdown.Menu>
-          </Dropdown>
+          <Link onClick={logout} to="/" className="navItem linkButton linkLogout">Logout</Link>
         </div>
         <div className="votingSection">
           <div className="createMeasure">
