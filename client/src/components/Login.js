@@ -8,10 +8,11 @@ import axios from 'axios';
 const Login = (props) => {
 
   // not setting after post
-  const [token, setToken] = useState('');
+  // probably wont use them in this size of app
+  //const [token, setToken] = useState('');
   const [invalid, invalidCredentials] = useState(false);
-  const [status, setStatus] = useState(0);
-  const [user, setUserName] = useState('');
+  //const [status, setStatus] = useState(0);
+  //const [user, setUserName] = useState('');
 
   // 3a)
   // Again, another controller function that handles the 
@@ -39,9 +40,9 @@ const Login = (props) => {
         console.log(`_id: ${response.data._id}`);
         console.log(`email: ${response.data.email}`);
         if (response.status === 200) {
-          setStatus(response.status);
-          setToken(response.headers['auth-token']);
-          setUserName(response.data.name);
+          //setStatus(response.status);
+          //setToken(response.headers['auth-token']);
+          //setUserName(response.data.name);
           props.handleLogin(
             response.data._id,
             response.data.name,
@@ -69,21 +70,21 @@ const Login = (props) => {
         </div>
         <div className="middleForm">
         </div>
-        <div className="bottomForm">       
+        <div className="bottomForm">
           <form
             className="loginForm"
             onSubmit={handleSubmit}>
             <div>
               <label htmlFor="email"></label>
               <input
-                placeholder="Your email" //required
+                placeholder="Your email" required
                 name="useremail"
                 type="email" />
             </div>
             <div>
               <label htmlFor="password"></label>
               <input
-                placeholder="Password" //required
+                placeholder="Password" required
                 name="password"
                 type="password" />
             </div>

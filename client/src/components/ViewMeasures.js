@@ -28,8 +28,12 @@ const ViewMeasures = (props) => {
       .then((response) => {
         console.log("Printing out information: " + response.data[0].name);
         let currentMeasures = [];
-        for (let i = 0; i < response.data.length; ++i) {
-          currentMeasures.push(response.data);
+        // render the newest measures first, keeping the 
+        // expired renders at the end
+        // cleanup uo the excessive data use
+        for (let i = response.data.length - 1; i >= 0; --i) {
+          currentMeasures.push(response.data[i]);
+          //console.log(response.data[i])
         }
         setMeasures(currentMeasures);
         //might create function to pass into each measure,
@@ -38,21 +42,19 @@ const ViewMeasures = (props) => {
   }, []);
 
   return (
-    <div className="viewMeasures">
-      <div className="measures">
+    <div className="measures">
       {measures.map((measure, i) => {
         return <Measure
           {...props}
           key={i}
           userId={props.userId}
-          data={measure[i]}
-          title={measure[i].name}
-          desc={measure[i].description}
-          yeses={measure[i].votes.yes}
-          nos={measure[i].votes.no}
+          data={measure}
+          title={measure.name}
+          desc={measure.description}
+          yeses={measure.votes.yes}
+          nos={measure.votes.no}
         />
-      }
-      )}
+      })}
     </div>
   )
 }
