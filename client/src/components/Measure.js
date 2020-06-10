@@ -144,6 +144,8 @@ const Measure = (props) => {
         {votingOver ? <div>
           <p>The voting period for this measure has ended</p>
           <p>Expired on: {fulldate}</p>
+          <p>Votes in favor: {props.yeses}</p>
+          <p>Votes against: {props.nos}</p>
         </div> :
           userHasVoted ?
             <div className="midBottom">
