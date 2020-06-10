@@ -25,7 +25,7 @@
     display: grid;
     align-items: center;
     justify-items: center;
-    height: 300px;
+    height: 50%;
     background-color: #ffffff;
 }
 
@@ -52,8 +52,8 @@
 }
 
 .featureBox {
-    display: grid;
-    grid-template-columns: 21% 79%;
+    display: flex;
+    /* grid-template-columns: 21% 79%; */
     color: #333333;
     background-color: #ffffff;
     padding: 20px;
@@ -67,7 +67,10 @@
     transition-duration: 0.5s;
 }
 
-.featureImage {
-    display: grid;
-    align-items: center;
+/* .featureImage {
+    
+} */
+
+.featureContext {
+    text-align: right;
 }
