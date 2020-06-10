@@ -13,6 +13,11 @@ const About = (props) => {
                     </div>
                 </div>
                 <div className="divider"></div>
+                <div className="textSection">
+                    <div className="textBox">
+                        <p>placeholder</p>
+                    </div>
+                </div>
                 <div className="featureSection">
                     <div className="featureContainer">
                         <div className="featureBox">
