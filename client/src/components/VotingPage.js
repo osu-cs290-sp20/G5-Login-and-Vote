@@ -12,7 +12,7 @@ import { Dropdown } from 'react-bootstrap';
 import About from './About';
 import CreateMeasure from './CreateMeasure';
 import ViewMeasures from './ViewMeasures';
-
+//a comment
 // 4)
 // Aside from the issue of the user being logged out 
 // after initial registration, a logged in user should
