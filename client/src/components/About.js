@@ -16,7 +16,7 @@ const About = (props) => {
         <div className="textSection">
           <div className="textBox">
             <p>Cloudvote is an interactive voting website that allows users to create measures and proposals for issues
-              that they care about. Simply create a measure in out "Propose a Measure" tab, write down your issue, give it 
+              that they care about. Simply create a measure in the "Propose a Measure" tab, write down your issue, give it 
               a description, and then click submit! You'll be able to both vote on your own measures, and see how others
               have voted. But be fast——measures expire after a limited amount of time. So get to it!
             </p>
