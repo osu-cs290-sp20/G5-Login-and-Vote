@@ -37,11 +37,11 @@ const Measure = (props) => {
     if (currDate >= endDate) {
       endVoting(true);
     }
-    console.log(counter)
+    // console.log(counter)
     // prevents memory leak
     // https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
     return () => clearTimeout(time);
-  }, [counter]);
+  }, [currDate, endDate]);
 
   const retTime = (seconds) => {
     if (seconds > 60) {
@@ -82,9 +82,8 @@ const Measure = (props) => {
           <p className="measureText">{props.desc}</p>
         </div>
         <div className="sideRight">
-          <form onSubmit={castVote}>
-            {votingOver ? '' :
-              <form className="measureButtons">
+            {votingOver && !userHasVoted ? '' :
+              <form onSubmit={castVote} className="measureButtons">
                 <div className="voteChoice">
                   <input name="choice" type="radio" value="yes" id="yes" className="voteButton" />
                   <label htmlFor="yes" className="voteLabel">Yay</label>
@@ -94,8 +93,8 @@ const Measure = (props) => {
                   <label htmlFor="no" className="voteLabel">Nay</label>
                 </div>
                 <button className="castButton">Cast Vote</button>
-              </form>}
-          </form>
+              </form>
+            }
         </div>
       </div>
 
