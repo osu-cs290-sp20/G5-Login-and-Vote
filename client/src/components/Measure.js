@@ -26,10 +26,12 @@ const Measure = (props) => {
   const endDate = new Date(props.data.endDate).getTime();
   const [counter, setCounter] = useState(currDate);
   const [votingOver, endVoting] = useState(false);
+  const [yays, setYays] = useState(props.yeses);
+  const [nays, setNays] = useState(props.nos);
 
 
   var userHasVoted = props.data.voters.includes(props.userId);
-  //const [vote, checkVote] = useState(false)
+  const [voting, checkVote] = useState(false)
   const measureId = props.data._id;
 
   useEffect(() => {
@@ -44,10 +46,10 @@ const Measure = (props) => {
   }, [currDate, endDate]);
 
   /* useEffect(() => {
-    if (vote) {
-      
+    if (voting) {
+      userHasVoted = props.data.voters.includes(props.userId);
     }
-  }, [vote]); */
+  }, [voting]); */
 
 
   const retTime = (seconds) => {
@@ -79,13 +81,19 @@ const Measure = (props) => {
         props.history.push('/voting');
         console.log(response);
       });
+      //keeping track of vote
+      checkVote(true);
+      if (e.target.elements.choice.value === "yes") {
+        setYays(yays+1);
+      }
+      else {
+        setNays(nays+1);
+      }
     }
+    //no choice was selected
     else {
       console.log('choice is null');
     }
-    
-    
-    //checkVote(true);
   }
 
   // measures expire in 24 hours. That functionality
@@ -98,7 +106,7 @@ const Measure = (props) => {
           <p className="measureText">{props.desc}</p>
         </div>
         <div className="sideRight">
-          {votingOver && !userHasVoted ? '' :
+          {votingOver || userHasVoted || voting ? '' :
             <form onSubmit={castVote} className="measureButtons">
               <div className="voteChoice">
                 <input name="choice" type="radio" value="yes" id="yes" className="voteButton" />
@@ -127,10 +135,16 @@ const Measure = (props) => {
               <p className="result">Votes in favor: {props.yeses}</p>
               <p className="result">Votes against: {props.nos}</p>
             </div> :
-            <div className="midBottom">
-              <p className="timer">Time left: {retTime((endDate - counter) / 864)}</p>
-              <p className="result">Cast your vote to see the results</p>
-            </div>}
+            voting ?
+              <div className="midBottom">
+                <p className="timer">Time left: {retTime((endDate - counter) / 864)}</p>
+                <p className="result">Votes in favor: {yays}</p>
+                <p className="result">Votes against: {nays}</p>
+              </div> :
+              <div className="midBottom">
+                <p className="timer">Time left: {retTime((endDate - counter) / 864)}</p>
+                <p className="result">Cast your vote to see the results</p>
+              </div>}
       </div>
     </div>
   );
