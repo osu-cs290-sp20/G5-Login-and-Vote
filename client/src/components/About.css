@@ -1,20 +1,25 @@
-/* .aboutPage {
-    
-} */
-
 .featureContainer {
     display: grid;
     grid-template-columns: 50% 50%;
 }
 
 .featureBox {
+    display: grid;
+    grid-template-columns: 21% 79%;
+    color: #333333;
     background-color: #ffffff;
+    padding: 20px;
     border: 2px solid #dadada;
     border-radius: 5px;
 }
 
 .featureBox:hover {
+    color: #ffffff;
     background-color: #457B9D;
-    cursor: pointer;
     transition-duration: 0.5s;
+}
+
+.featureImage {
+    display: grid;
+    align-items: center;
 }

@@ -39,7 +39,7 @@ const VotingPage = (props) => {
     <BrowserRouter>
       <div className="wrapper">
         <div className="header">
-          <h1 className="headerTitle">PLACEHOLDER TITLE</h1>
+          <h1 className="headerTitle">CLOUDVOTE</h1>
         </div>
         <div className="nav">
           <div className="navItem userWelcome">
